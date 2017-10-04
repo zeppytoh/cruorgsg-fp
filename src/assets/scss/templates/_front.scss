@@ -399,8 +399,11 @@
       color: $cru-cyan;
       }
     .title-word {
-      color: #fff;
+      color: $white;
     }
+  }
+  h4, h5, h6 {
+    color: $white;
   }
   .home-grid {
     @include xy-grid-layout(3, '.social-cell');
@@ -459,4 +462,7 @@
     @include xy-cell(12);
     margin-top: 4rem;
   }
+}
+.widget_sfp_page_plugin_widget {
+  width: 100%;
 }

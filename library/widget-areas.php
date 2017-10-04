@@ -18,6 +18,15 @@ function foundationpress_sidebar_widgets() {
 		'after_title' => '</h4>',
 	));
 	register_sidebar(array(
+		'id' => 'front-social-media-widgets',
+		'name' => __( 'Front page widgets', 'foundationpress' ),
+		'description' => __( 'Meant for social media plugins.', 'foundationpress' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4>',
+		'after_title' => '</h4>'
+	));
+	register_sidebar(array(
 		'id' => 'content-footer-widgets',
 		'name' => __( 'Content Footer widgets', 'foundationpress' ),
 		'description' => __( 'Drag widgets to this content bottom container.', 'foundationpress' ),

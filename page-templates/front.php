@@ -115,7 +115,7 @@ get_header(); ?>
 		<h3 class="main-heading"><span class="first-line">Explore our family of</span><span class="title-word">Ministries</span> </h3>
 	</header>
 	<div class="home-section-wrapper">
-		<div class="section-divider home-grid grid-x grid-padding-x grid-padding-y small-up-2 medium-up-2 large-up-4">
+		<div class="section-divider home-grid grid-x grid-padding-x grid-padding-y small-up-2 medium-up-3 large-up-4">
 			<div class="cell"><a href="#"><img src="https://unsplash.it/300/200/?image=72" alt="athletes"></a></div>
 			<div class="cell"><a href="#"><img src="https://unsplash.it/300/200/?image=32" alt="healthcare"></a></div>
 			<div class="cell"><a href="#" class="text-hide"><img src="https://unsplash.it/300/200/?image=42" alt="campus">Campus</a></div>
@@ -129,7 +129,7 @@ get_header(); ?>
 			<hr />
 
 		<div class="home-grid grid-padding-x align-center">
-		<p class="cell lead">Have a question you can't find an answer to on the site? <strong>Contact us by email or phone call.</strong> We’ll help you find what you need, from the ministry or training resource that’s right for you.</p>
+		<p class="cell align-center lead">Have a question you can't find an answer to on the site? <strong>Contact us by email or phone call.</strong> We’ll help you find what you need, from the ministry or training resource that’s right for you.</p>
 		<button class="large primary button"><a href="#">Contact Us Today</a></button>
 	</div>
 	</div> <!--grid-container-->
@@ -154,6 +154,7 @@ get_header(); ?>
 				<a class="social-cell" href="#"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i><br />@crusingapore</a>
 				<a class="social-cell" href="#"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i><br />@crusingapore</a>
 			</div>
+				<?php get_sidebar('front-social-media'); ?>
 		</section>
 	</div>
 </section>

@@ -52,18 +52,19 @@
   }
 
   .card-section {
-    .article-title {
-      font-size: 0.75rem;
-      margin-bottom: 0;
+    .event-title {
+      font-size: 1.0rem;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
-    .article-details {
+    .event-details {
       font-size: rem-calc(22);
       color: $dark-gray;
       padding-bottom: 0.5rem;
     }
 
-    .article-summary {
+    .event-summary {
     }
   }
 
@@ -88,4 +89,12 @@
 }
 .tribe-events-schedule h2 {
   font-weight: 300;
+}
+
+#tribe-events-footer .tribe-events-sub-nav .tribe-events-nav-next, #tribe-events-header .tribe-events-sub-nav .tribe-events-nav-next {
+
+}
+
+.single-tribe_events #tribe-events-footer li, .single-tribe_events #tribe-events-header li {
+
 }
