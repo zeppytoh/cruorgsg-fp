@@ -84,8 +84,8 @@ get_header(); ?>
 		<div class="home-grid grid-x align-justify grid-padding-x grid-padding-y small-up-2 medium-up-3 large-up-6">
 			<div class="semantic">
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/semantic.svg" alt="semantic">
-				<h3>Semantic</h3>
-				<p>Everything is semantic. You can have the cleanest markup without sacrificing the utility and speed of Foundation.</p>
+				<h3>Events</h3>
+				<button class="large primary button"><a href="/events">See Events</a></button>
 			</div>
 			<div class="responsive">
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/responsive.svg" alt="responsive">
@@ -142,6 +142,7 @@ get_header(); ?>
 			<div class="home-grid">
 				<h3 class="main-heading"><span class="first-line">Check out our</span> <span class="title-word">Upcoming Events</span> </h3>
 				<?php get_template_part( 'template-parts/event-slider' ); ?>
+
 			</div> <!--grid-container-->
 		</section>
 		<section class="social-media">

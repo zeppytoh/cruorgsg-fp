@@ -52,4 +52,7 @@ require_once( 'library/sticky-posts.php' );
 require_once( 'library/responsive-images.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
+
+/** Custom event list displays */
+require_once( 'library/events-widget.php' );
 // require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );

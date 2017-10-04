@@ -1,11 +1,12 @@
 
 .main-wrap {
-  @include xy-grid-container(full);
+  @include xy-grid-container();
   @include xy-grid();
+  margin: 0 auto;
   margin-top: $global-margin;
   @include breakpoint(medium) {
     margin-top: $global-margin*3;
-    @include xy-gutters($grid-margin-gutters,$gutter-type: margin, $gutter-position: left right);
+
   }
 
   &.sidebar-left {
@@ -38,6 +39,7 @@
     // Default template
     @include breakpoint(small) {
       @include xy-cell(12);
+      @include xy-gutters($grid-padding-gutters,$gutter-type: padding, $gutter-position: left right);
     }
 
     @include breakpoint(medium) {
@@ -119,4 +121,7 @@
     }
 
   }
+}
+ol.tribe-list-widget {
+  list-style: none;
 }

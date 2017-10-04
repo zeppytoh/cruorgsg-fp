@@ -44,7 +44,7 @@ $more = false;
 			 *
 			 * @param $event_type
 			 */
-			$event_type = apply_filters( 'FamilyLife', $event_type );
+			$event_type = apply_filters( 'featured', $event_type );
 
 			tribe_get_template_part( 'list/single', $event_type );
 			?>
