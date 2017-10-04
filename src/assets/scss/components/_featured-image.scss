@@ -2,10 +2,12 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: rem-calc(100);
+  height: rem-calc(200);
+  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
+  @include xy-cell(shrink);
 
   @include breakpoint(medium) {
-    height: rem-calc(200);
+    height: rem-calc(300);
   }
 
   @include breakpoint(xlarge) {

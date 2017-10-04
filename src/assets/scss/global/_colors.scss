@@ -1,1 +1,23 @@
 $dark-nav-color: #2C3840;
+$cru-gold: #F0B626;
+$cru-blue: #007398;
+$cru-cyan: #43B1C8;
+$cru-orange: #dd7d1b;
+$cru-red: #d31145;
+$cru-gray: #828082;
+$cru-light-gray: #dbd8db;
+
+$accent-font-family: "League Gothic", "oswald", serif;
+$accent-font-family-default-size: 120%;
+span[aria-label] {display: none}
+
+.button {
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 1px 1px 4px $cru-gray;
+  border-radius: rem-calc(4);
+  a {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}

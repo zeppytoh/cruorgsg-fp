@@ -67,14 +67,14 @@
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
+$global-font-size: 110%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
-  success: #3adb76,
-  warning: #ffae00,
+  primary: #007398,
+  secondary: #908b90,
+  success: #43b1c8,
+  warning: #dd7d1b,
   alert: #cc4b37,
 );
 $light-gray: #e6e6e6;
@@ -84,14 +84,14 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$body-font-family: 'freight-sans-pro', "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-position: 1rem;
-$global-weight-normal: normal;
-$global-weight-bold: bold;
-$global-radius: 0;
+$global-weight-normal: 300;
+$global-weight-bold: 600;
+$global-radius: rem-calc(3);
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
@@ -107,7 +107,7 @@ $print-transparent-backgrounds: true;
 
 $breakpoints: (
   small: 0,
-  medium: 640px,
+  medium: 737px,
   large: 1024px,
   xlarge: 1200px,
   xxlarge: 1440px,
@@ -132,7 +132,7 @@ $block-grid-max: 8;
 // ------------------
 
 $header-font-family: $body-font-family;
-$header-font-weight: $global-weight-normal;
+$header-font-weight: 600;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
@@ -140,8 +140,8 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
+    'h1': ('font-size': 26),
+    'h2': ('font-size': 22),
     'h3': ('font-size': 19),
     'h4': ('font-size': 18),
     'h5': ('font-size': 17),
@@ -158,8 +158,8 @@ $header-styles: (
 );
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
-$header-small-font-color: $medium-gray;
-$paragraph-lineheight: 1.6;
+$header-small-font-color: $dark-gray;
+$paragraph-lineheight: 1.5;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
 $code-color: $black;
@@ -396,9 +396,9 @@ $dropdownmenu-submenu-background: $dropdownmenu-background;
 $dropdownmenu-padding: $global-menu-padding;
 $dropdownmenu-nested-margin: 0;
 $dropdownmenu-submenu-padding: $dropdownmenu-padding;
-$dropdownmenu-border: 1px solid $medium-gray;
-$dropdown-menu-item-color-active: $light-gray;
-$dropdown-menu-item-background-active: lighten($dark-nav-color, 5%);
+$dropdownmenu-border: none;
+$dropdown-menu-item-color-active: get-color(primary);
+$dropdown-menu-item-background-active: none;
 
 // 19. Flexbox Utilities
 // ---------------------
@@ -493,9 +493,9 @@ $meter-fill-bad: $alert-color;
 // 25. Off-canvas
 // --------------
 
-$offcanvas-size: 280px;
+$offcanvas-size: 300px;
 $offcanvas-vertical-size: 250px;
-$offcanvas-background: $dark-nav-color;
+$offcanvas-background: $white;
 $offcanvas-shadow: 0 0 10px rgba($black, 0.7);
 $offcanvas-inner-shadow-size: 20px;
 $offcanvas-inner-shadow-color: rgba($black, 0.25);
@@ -503,10 +503,10 @@ $offcanvas-overlay-zindex: 11;
 $offcanvas-push-zindex: 12;
 $offcanvas-overlap-zindex: 13;
 $offcanvas-reveal-zindex: 12;
-$offcanvas-transition-length: 0.5s;
-$offcanvas-transition-timing: ease;
+$offcanvas-transition-length: 0.3s;
+$offcanvas-transition-timing: ease-out;
 $offcanvas-fixed-reveal: true;
-$offcanvas-exit-background: rgba($white, 0.25);
+$offcanvas-exit-background: rgba($black, 0.65);
 $maincontent-class: 'off-canvas-content';
 
 // 26. Orbit
@@ -842,7 +842,7 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0rem;
-$topbar-background: $dark-nav-color;
+$topbar-background: rgba(0,0,0,0.5);
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;

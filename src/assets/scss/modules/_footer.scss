@@ -1,6 +1,5 @@
 .footer-container {
   margin: 0 auto;
-  border-top: 1px solid $medium-gray;
   margin-top: rem-calc(60);
 }
 
@@ -19,4 +18,170 @@
     margin: 0;
     padding: 0;
   }
+}
+.home-footer {
+  background-color: $white;
+}
+
+#footer-sitemap-container {
+  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: top left right);
+   margin-top: rem-calc(0);
+   background-color: $cru-light-gray;
+
+   #footer-sitemap {
+     @include xy-grid-container();
+     @include xy-grid();
+     color:$black;
+     padding: rem-calc(20) 0;
+     a {
+       color:$black !important;
+       }
+       .menu a {
+         padding: 0.5rem 0;
+       }
+       .menu .is-active a {
+         background: none;
+       }
+      @include breakpoint(small) {
+        @include grid-layout(2, '.footer-cell', $grid-column-gutter);
+      }
+      @include breakpoint(medium) {
+        @include grid-layout(4, '.footer-cell', $grid-column-gutter);
+      }
+     .link-column:not(:last-child) {
+    //  border-right:1px solid $light-gray
+     }
+   }
+  .footer-cell {
+    text-transform: uppercase;
+    @include xy-cell(auto);
+    padding: 0;
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: bottom);
+    font-size: 80%;
+    h6 { font-weight: 600; }
+    .menu-item {
+      width: 100%;
+      font-weight: 300;
+    }
+  }
+}
+#footer-social-container {
+ max-width: 100%;
+ width: 100%;
+ margin: 0 auto;
+ margin-top: rem-calc(0);
+ background-color: $dark-gray;
+
+ #footer-social {
+   @include grid-row();
+   color:$light-gray;
+   padding: rem-calc(60) 0;
+   a {
+     color:$light-gray !important;
+     }
+   .footer-left {
+     @include breakpoint(small) {
+       @include grid-column(12);
+     }
+     @include breakpoint(medium) {
+       @include grid-column(6);
+     }
+     @include breakpoint(large) {
+       @include grid-column(5);
+     }
+     .input-group-field {
+       background: $white
+     }
+   }
+
+   .footer-right {
+     text-align: right;
+     @include breakpoint(small) {
+       @include grid-column(12);
+     }
+     @include breakpoint(medium) {
+       @include grid-column(6);
+     }
+   }
+   .fa {
+     padding: 0 0 0 0.6rem;
+     }
+   h2 {
+     color: $white;
+     }
+   p {
+     font-size: 0.8rem;
+     margin-bottom: 0;
+   }
+ }
+}
+#footer-contact-details-container {
+  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
+  margin-top: rem-calc(0);
+  background: darken($dark-gray, 35%);
+
+
+  #footer-contact-details {
+    @include xy-grid(horizontal);
+
+    color:$light-gray;
+    padding: rem-calc(20) 0;
+    a {
+     color:$light-gray !important;
+    }
+
+    .footer-left {
+      @include breakpoint(small) {
+      @include xy-cell(12);
+      ul {
+        margin-left:0;
+      }
+       li {
+         display: block;
+       }
+       text-align: center;
+   }
+   @include breakpoint(medium) {
+   @include xy-cell(6);
+     text-align: left;
+   }
+    @include breakpoint(large) {
+    @include xy-cell(8);
+    ul {
+      margin-bottom: 0;
+      }
+   li {
+     display: inline-block
+     }
+   }
+   font-size: 0.9rem;
+   .fa {
+     padding: 0 0.4rem;
+     }
+ }
+ .footer-right {
+   ul {
+
+     li {
+
+     }
+   }
+   @include breakpoint(small) {
+     @include xy-cell(12);
+   }
+   @include breakpoint(medium) {
+   @include xy-cell(6);
+   }
+    @include breakpoint(large) {
+    @include xy-cell(4);
+
+    ul {padding-top: 1.6rem;}
+   }
+   font-size: 0.9rem;
+   .fa {padding: 0 0.4rem;}
+   }
+ }
+}
+#footer-contact-details-container {
+  border-bottom: $cru-gold $global-margin/2 solid;
 }

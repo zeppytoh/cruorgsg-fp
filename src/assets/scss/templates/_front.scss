@@ -1,27 +1,32 @@
 // Page header
 .front-hero {
+
   .marketing {
-    @include xy-grid-container(55rem);
+    @include xy-grid-container;
     @include xy-grid;
+    @include breakpoint(small) {
+      margin-top: rem-calc(110);
+    }
   }
 
   @include breakpoint(small) {
-    background: url('../images/demo/hero-bg-foundation-6-small.svg') bottom center;
+    background: url('../images/singaporerunner.jpg') bottom center;
     background-size: cover;
     background-position: bottom;
     padding: rem-calc(65%) 0;
-    margin: 0 0 rem-calc(32);
+    margin: 0;
     height: auto;
     position: relative;
     text-align: left;
   }
 
   @include breakpoint(medium) {
-    background: url('../images/demo/hero-bg-foundation-6-large.svg') bottom center;
+    background: url('../images/singaporerunner.jpg') bottom center;
     background-size: cover;
     background-position: center;
-    height: rem-calc(685);
-    margin: 0 0 rem-calc(72);
+    height: 100vh;
+    margin: rem-calc(4 0 72);
+
   }
 
   .watch {
@@ -107,17 +112,21 @@
 
 // Intro
 .intro {
+  @include angle('before', false, 3deg);
+  background-color: $white;
   @include xy-grid-container;
   @include xy-grid;
-
+  margin: 0 auto;
   .fp-intro {
-    @include breakpoint(small) {
+    @include breakpoint(small only) {
       @include xy-cell(12);
+      margin: $global-margin*10 $global-margin $global-margin*2;
+
     }
 
     @include breakpoint(medium) {
       @include xy-cell(10);
-      @include xy-cell-offset(1);
+  @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: left right);
 
       h2 {
         font-weight: 300;
@@ -145,11 +154,269 @@
     box-sizing: border-box;
   }
 }
+// home-sections typography and colours
+
+.home-sections, .content-footer-section {
+  margin: 0;
+  padding: 0;
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left);
+  .home-grid {
+    @include xy-grid-container();
+    @include xy-grid();
+    @include breakpoint(medium up) {
+      margin-bottom: $global-margin;
+    }
+    .home-cell {
+      @include xy-gutters($gutters: $grid-margin-gutters/2, $gutter-type: margin, $gutter-position: top right);
+      img {
+        border-radius: $global-radius;
+      }
+      @include breakpoint(small) {
+        @include xy-cell(1 of 2);
+      }
+      @include breakpoint(medium) {
+        @include xy-cell(1 of 3);
+      }
+      @include breakpoint(large) {
+        @include xy-cell(1 of 6);
+      }
+      margin-bottom: -3rem;
+      .label {
+        font-size: 1.2rem;
+        width: 100%;
+        height: rem-calc(60);
+        position: relative;
+        top: -4rem;
+        background-color: rgba(0,0,0,0.6);
+      }
+      &:hover {
+        .label {
+          background-color: rgba(0,0,0,0.1);
+          transition: background-color;
+          transition-duration: 0.5s;
+        }
+        img {
+          box-shadow: 1px 1px 4px $cru-gray;
+        }
+        text-shadow: 2px 2px 6px $black;
+
+      }
+    }
+  }
+}
+
+
+/* Heading 3 .main-heading typography */
+
+.main-heading {
+  @include xy-cell();
+  font-family: $header-font-family;
+  font-weight: 300;
+  line-height: 0.9;
+  margin-bottom: 1rem;
+
+  .first-line {
+    font-family: $accent-font-family;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.0;
+    font-style: normal;
+    font-size: 100%;
+  }
+
+  .title-word {
+    display: block;
+    margin-left: -0.1rem;
+    text-transform: uppercase;
+    font-style: normal;
+    line-height: 0.8;
+    font-size: 200%;
+    font-weight: 300;
+    font-style: normal;
+
+  }
+}
+
+.communities {
+  padding: $global-margin*2 0;
+  @include breakpoint(small only) {
+    @include angle('before', false, 3deg);
+  }
+  background-color: $cru-gold;
+  @include breakpoint(medium up) {
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
+  }
+  .main-heading {
+    color: smart-scale($cru-orange, 15%);
+    .first-line {
+      color: $white;
+      }
+    .title-word {
+      color: $cru-red;
+    }
+  }
+}
+.touchpoints {
+  background-color: $white;
+  @include breakpoint(small only) {
+    margin: 0;
+  }
+  @include breakpoint(medium up) {
+    background-color: $cru-blue;
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: top left right);
+
+    padding: $global-margin*3 0;
+  }
+  @include angle('after', true, 2deg);
+}
+
+.home-section-wrapper {
+  @include xy-grid-container();
+  @include xy-grid();
+}
+
+.training {
+  @include angle('after', true, 2deg);
+  padding: $global-margin*2 0;
+
+  @include breakpoint(medium up) {
+    @include xy-cell(auto);
+  }
+  @include breakpoint(small only) {
+    @include xy-cell(110%);
+    margin-left: 0;
+    margin-right: 0;
+  }
+  background-color: $cru-blue;
+  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: top);
+
+  img {
+    border-radius: $global-radius;
+  }
+
+
+  .main-heading {
+    color: $white;
+    .first-line {
+      color: smart-scale($white, 25%);
+      }
+    .title-word {
+      color: $white;
+    }
+  }
+}
+.missions {
+  @include xy-cell(auto);
+  padding: $global-margin;
+  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: top);
+  @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: left right);
+  background-color: #ddd;
+  .main-heading {
+    color: $cru-blue;
+  }
+  @include breakpoint(small only) {
+    margin: 0;
+  }
+  @include breakpoint(medium) {
+    background: none;
+    margin-top: 4rem;
+    margin-bottom: -4rem;
+    .main-heading {
+      color: $white;
+    }
+  }
+
+}
+
+.ministries {
+  margin: $global-margin;
+  padding-top: $global-margin*3;
+  .main-heading {
+    color: smart-scale($cru-orange, 15%);
+    .first-line {
+      color: $cru-gray;
+      }
+    .title-word {
+      color: $cru-orange;
+    }
+  }
+}
+.updates, .content-footer-section {
+  background-color: $cru-cyan;
+  .home-section-wrapper {
+
+  }
+  padding: 0;
+
+  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
+}
+.events {
+  background-color: $cru-cyan;
+  @include breakpoint(medium up) {
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
+    @include angle('before', false, 3deg);
+    @include xy-cell(50%);
+
+  }
+  @include breakpoint(small only) {
+    @include angle('before', false, 3deg);
+    @include xy-cell(100%);
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: right);
+    margin-left: 0;
+    padding-left: $global-margin;
+  }
+  .main-heading {
+    font-size: rem-calc(20);
+    color: smart-scale($cru-orange, 15%);
+    .first-line {
+      color: $white;
+      }
+    .title-word {
+      color: darken($cru-blue, 10%);
+    }
+  }
+  @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top);
+
+}
+
+.social-media {
+  background-color: #10538d;
+  @include xy-cell(auto);
+
+  @include breakpoint(small only) {
+    @include angle('before', false, 3deg);
+    margin: 0;
+  }
+  @include breakpoint(medium up) {
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left);
+    @include angle('before', true, 2deg);
+
+  }
+  @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top left);
+  .main-heading {
+    font-size: rem-calc(20);
+    .first-line {
+      color: $cru-cyan;
+      }
+    .title-word {
+      color: #fff;
+    }
+  }
+  .home-grid {
+    @include xy-grid-layout(3, '.social-cell');
+  }
+}
+.social-cell {
+  color: $cru-cyan;
+  &:hover {
+    color: $white;
+  }
+}
+
 
 // Benefits
-.benefits {
-  @include xy-grid-container;
-  @include xy-grid;
+.missions {
+
   text-align: center;
 
   header {
@@ -170,13 +437,7 @@
   .responsive,
   .customizable,
   .professional {
-    @include breakpoint(small) {
-      @include xy-cell(12);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(3);
-    }
+    @include xy-cell(auto);
 
     img {
       padding: 1.25rem;
