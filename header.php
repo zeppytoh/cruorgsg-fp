@@ -21,7 +21,7 @@
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
 	<header class="site-header" role="banner">
-		<nav class="site-navigation top-bar header" role="navigation">
+		<nav class="site-navigation top-bar header" role="navigation" data-menu-underline-from-center>
 			<div class="top-bar-left">
 				<div class="site-desktop-title">
 <span aria-label="cru-singapore"><?php bloginfo( 'name' ); ?></span>

@@ -68,7 +68,9 @@ if ( $posts ) : ?>
 		do_action( 'tribe_events_list_widget_after_the_event_image' );
 
 	?>
-		<span class="<?php echo $classes[0]; ?>-label label card-tag"><?php echo $classes[0]; ?></span>
+		<span class="<?php echo $classes[0]; ?>-label label card-tag">
+      <?php echo $classes[0]; ?>
+    </span>
   </div>
 <?php } ?>
 <?php do_action( 'tribe_events_before_the_content' ); ?>  <div class="card-section">

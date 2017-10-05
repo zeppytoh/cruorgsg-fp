@@ -46,7 +46,7 @@ if ( ! class_exists( 'Foundationpress_Top_Bar_Walker' ) ) :
         // insert description for top level elements only
         // you may change this
         $description = ( ! empty ( $item->description ) and 0 == $depth )
-            ? esc_attr( $item->description ) : '';
+            ? "<i class='description'>".esc_attr( $item->description )."</i>" : '';
 
         $title = apply_filters( 'the_title', $item->title, $item->ID );
 
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Foundationpress_Top_Bar_Walker' ) ) :
             . "<p class='menu-title'>"
 						.$title
 						."</p>"
-						."<i class='description'>".$description."</i>"
+						. $description
             . "</a>"
             . $args->link_after
             . $args->after;

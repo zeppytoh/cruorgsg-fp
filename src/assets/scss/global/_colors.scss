@@ -21,3 +21,24 @@ span[aria-label] {display: none}
     font-weight: 600;
   }
 }
+
+.cru {
+  &.red {
+    color: $cru-red;
+  }
+  &.gold {
+    color: $cru-gold;
+  }
+  &.orange {
+    color: $cru-orange;
+  }
+  &.cyan {
+    color: $cru-cyan;
+  }
+  &.blue {
+    color: $cru-blue;
+  }
+  &.gray {
+    color: $cru-gray;
+  }
+}
