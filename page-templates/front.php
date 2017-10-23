@@ -3,22 +3,22 @@
 Template Name: Front
 */
 get_header(); ?>
-<header class="front-hero show-for-medium" role="banner">
-	<div class="marketing">
+<header class="front-hero grid-y show-for-medium" role="banner">
+	<div class="cell marketing flex-child-auto">
 		<div class="tagline">
-			<h1>Win, Build, Send for the Global Harvest</h1>
+			<h1><?php bloginfo( 'name') ?></h1>
 			<h4 class="subheader"><?php bloginfo( 'description' ); ?></h4>
 		</div>
 
 		<div class="watch">
-			<span id="stargazers"><a href="https://github.com/olefredrik/foundationpress">1.5k stargazers</a></span>
-			<span id="twitter"><a href="https://twitter.com/olefredrik">@crusingapore</a></span>
+			<a style="background-color:rgba(0,0,0,0.5);color:white;text-decoration:none;padding:4px 6px;position: relative;bottom:-1rem;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px;" href="https://unsplash.com/@ahyunlee?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Andy Lee"><span style="display:inline-block;padding:2px 3px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white;" viewBox="0 0 32 32"><title></title><path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path></svg></span><span style="display:inline-block;padding:2px 3px;">Andy Lee</span>
+			</a>
 		</div>
-		<a style="background-color:rgba(0,0,0,0.5);color:white;text-decoration:none;padding:4px 6px;position: relative;bottom:-1rem;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px;" href="https://unsplash.com/@ahyunlee?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Andy Lee"><span style="display:inline-block;padding:2px 3px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white;" viewBox="0 0 32 32"><title></title><path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path></svg></span><span style="display:inline-block;padding:2px 3px;">Andy Lee</span></a>
+
 	</div>
-	<div class="bottom-content-section" data-magellan data-threshold="0">
-    <a href="#main-content-section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 12c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm-18.005-1.568l1.415-1.414 4.59 4.574 4.579-4.574 1.416 1.414-5.995 5.988-6.005-5.988z"/></svg></a>
-  </div>
+	<div class="cell flex-child-auto bottom-content-section" data-magellan data-threshold="0">
+		<a href="#main-content-section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 12c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm-18.005-1.568l1.415-1.414 4.59 4.574 4.579-4.574 1.416 1.414-5.995 5.988-6.005-5.988z"/></svg></a>
+	</div>
 </header>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
@@ -53,7 +53,7 @@ get_header(); ?>
 
 <section class="home-sections communities">
 	<header class="home-grid grid-x grid-padding-x">
-		<h2 class="main-heading shrink"><span class="first-line">Our Ministries serve</span> <span class="title-word">Communities</span> in various spheres and stages of life</h2>
+		<h2 class="main-heading shrink"><span class="first-line">Our Ministries serve</span> <span class="title-word">Communities</span> in various spheres &amp; stages of life</h2>
 	</header>
 	<div class="home-grid">
         <a class="home-cell" href="#"><img src="https://unsplash.it/g/300/200/?image=42" alt="campus"><label class="label">Tertiary Students/<br />Postgraduates</label></a>
@@ -82,32 +82,13 @@ get_header(); ?>
 	</div>
 	<div class="missions">
 		<h2 class="main-heading">…and <strong>mission projects</strong> beyond Singapore</h2>
-		<div class="home-grid grid-x align-justify grid-padding-x grid-padding-y small-up-2 medium-up-3 large-up-6">
-			<div class="semantic">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/semantic.svg" alt="semantic">
-				<h3>Events</h3>
-				<button class="large primary button"><a href="/events">See Events</a></button>
-			</div>
-			<div class="responsive">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/responsive.svg" alt="responsive">
-				<h3>Responsive</h3>
-				<p>You can build for small devices first. Then, as devices get larger and larger, layer in more complexity for a complete responsive design.</p>
-
-			</div>
-
-			<div class="customizable">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/customizable.svg" alt="customizable">
-				<h3>Customizable</h3>
-				<p>You can customize your build to include or remove certain elements, as well as define the size of columns, colors, font size and more.</p>
-
-			</div>
-
-			<div class="professional">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/professional.svg" alt="professional">
-				<h3>Professional</h3>
-				<p>Millions of designers and developers depend on Foundation. We have business support, training and consulting to help grow your product or service.</p>
-			</div>
+		<div class="home-grid grid-x align-justify">
+			<div class="cell auto">
+				<img src="http://www2.cru.org.sg/wp-content/uploads/2017/10/Go-Love-The-Nations.png" alt="Go Love the Nations" />
+				<p class="lead">Go Love The Nations. Be it student or medical mission, Bible and gospel literature distribution, community outreach, humanitarian aid, or prayer and vision journeys, there is something available for everyone.</p>
+				<button class="large alert button"><a href="/missions">Explore Missions</a></button>
 		</div>
+
 	</div>
 </div>
 </section>
@@ -153,7 +134,7 @@ get_header(); ?>
 			<div class="home-grid grid-x">
 				<a class="social-cell" href="#"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i><br />CruSingapore</a>
 				<a class="social-cell" href="#"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i><br />@crusingapore</a>
-				<a class="social-cell" href="#"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i><br />@crusingapore</a>
+
 			</div>
 				<?php get_sidebar('front-social-media'); ?>
 		</section>

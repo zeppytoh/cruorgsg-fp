@@ -21,6 +21,8 @@
 }
 .home-footer {
   background-color: $white;
+  margin: 0;
+  padding: 0;
 }
 
 #footer-sitemap-container {
@@ -53,7 +55,7 @@
    }
   .footer-cell {
     text-transform: uppercase;
-    @include xy-cell(auto);
+
     padding: 0;
     @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: bottom);
     font-size: 80%;
