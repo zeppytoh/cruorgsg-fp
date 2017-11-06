@@ -43,7 +43,7 @@ if ( ! function_exists( 'foundationpress_footer_r' ) ) {
 		wp_nav_menu( array(
 			'container'      => false,
 			'menu_class'     => 'menu',
-			'items_wrap'     => '<ul class="%2$s align-right">%3$s</ul>',
+			'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
 			'theme_location' => 'footer-r',
 			'depth'          => 2,
 			'fallback_cb'    => false,

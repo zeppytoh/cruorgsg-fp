@@ -1,6 +1,7 @@
 // Page header
 .front-hero {
   @include xy-grid($direction: vertical);
+
   @include breakpoint(small only) {
     // background: url('../images/singaporerunner.jpg') bottom center;
     // background-size: cover;
@@ -14,9 +15,10 @@
   }
 
   @include breakpoint(medium) {
+    background: url('../images/singaporerunner.jpg') bottom center;
     background-size: cover;
     background-position: center;
-    padding: rem-calc(45%) 0 2rem 0;
+    padding: rem-calc(65%) 0 2rem 0;
     height: 100vh;
     display: flex;
     // @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
@@ -32,16 +34,14 @@
     }
 
     .tagline {
+
+      @include breakpoint(small) {
+        @include xy-cell(8);
+      }
+
       @include breakpoint(medium) {
         @include xy-cell(12);
-        padding-top: 4rem;
-        h1 {
-          color: $white;
-          text-shadow: 1px 2px 3px $black;
-        }
-        .subheader {
-          color: $white;
-        }
+        padding-top: 6rem;
       }
     }
   }
@@ -133,10 +133,7 @@
 .intro {
   background-color: $white;
   @include xy-grid-container(full);
-  @include breakpoint(large down) {
-    @include angle('before', false, 2deg);
-
-  }
+  @include angle('before', false, 2deg);
   border: 1px solid white;
   .fp-intro {
     @include xy-grid-container;
@@ -179,7 +176,7 @@
 .home-sections, .content-footer-section {
   margin: 0;
   padding: 0;
-  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left);
     .home-grid {
       @include xy-grid-container();
       @include xy-grid();
@@ -299,8 +296,6 @@
   padding-top: $global-margin*2;
   @include breakpoint(small only) {
     @include angle('before', false, 3deg);
-    margin: 0;
-      @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left);
   }
   background-color: $cru-gold;
   @include breakpoint(medium up) {
@@ -328,8 +323,9 @@
   }
   @include breakpoint(medium up) {
     background-color: $cru-blue;
-    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: top);
-    padding: $global-margin*2 0;
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: top left right);
+
+    padding: $global-margin*3 0;
   }
   @include angle('after', true, 2deg);
 }
@@ -413,38 +409,35 @@
   }
 }
 .content-footer-section {
-  background-color: $light-gray;
+  background-color: $cru-orange;
   .cf-secondary {
-    background-color: $light-gray;
+    background-color: $cru-orange;
     @include breakpoint(medium up) {
       @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
-      @include xy-cell(50%);
+      @include xy-cell(auto);
     }
     @include breakpoint(small only) {
 
       @include xy-cell(110%);
+
       @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: left right);
 
     }
   }
   .cf-tertiary {
-    background-color: $cru-blue;
+    background-color: #064989;
     @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top left right);
     @include breakpoint(small only) {
       @include xy-cell(110%);
-      @include angle('before', true, 3deg);
-      margint-top: $global-margin*3;
-
-      padding: 2*$global-margin 0;
+      margin: 0;
+      padding: 3*$global-margin 0;
       // @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: right);
       // margin-left: 0;
       // padding-left: $global-margin;
-      @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: bottom);
-
     }
 
     @include breakpoint(medium up) {
-      @include xy-cell(auto);
+      @include xy-cell(50%);
       @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left);
     }
   }
@@ -488,7 +481,6 @@
   }
   .tabs-panel-fb {
     @include xy-grid-container();
-    @include xy-gutters($grid-padding-gutters, padding, top bottom);
     @include flex-align(center);
   }
   .tabs {
@@ -557,6 +549,7 @@
   }
 
   .home-grid {
+    @include xy-grid-layout(3, '.social-cell');
       @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position:left);
   }
 

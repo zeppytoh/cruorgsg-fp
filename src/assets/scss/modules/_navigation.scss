@@ -8,43 +8,86 @@
     margin: 0 auto;
     @include flex-align($x: justify);
     .menu {
-      background: transparent;
+      background: none;
+
       @include breakpoint(medium) {
-        .is-dropdown-submenu & {
-          background: $cru-gold;
+        &.is-dropdown-submenu {
+          background: $white;
+          .menu-title {
+            color: $black;
+          }
         }
       }
     }
     background: transparent;
+
   }
   .home & {
     position: relative;
     bottom: -8rem;
     z-index: 20;
     margin-top: -8rem;
+    .menu-title {
+      @include breakpoint(medium) {
+        color: $white;
+      }
+    }
   //  position: absolute;
   //  z-index: 20;
   }
-  .page-template-page-full-width &, .page-template-landing-page-full-width & {
+
+  // menu-title
+  .page-template-default &, .page-template-page-full-width & {
     background: $cru-red;
     border-top: $global-margin/2 solid $cru-red;
-    .header .menu {
+    @include breakpoint(medium up) {
+        background: $white;
+
+        .menu {
+          background: $white;
+        }
+    }
+
+  }
+  .page-template-ministry-landing &, .page-template-landing-page-full-width & {
+    background: transparent;
+    border-top: $global-margin/2 solid $cru-red;
+    bottom: 0;
+    @include breakpoint(medium) {
+      .nav-list {
+        background: rgba(0,0,0,0.1);
+      }
+      .menu-title {
+          color: $white;
+      }
+    }
+
+    .menu-title {
       @include breakpoint(medium) {
-        background: $cru-red;
+        color: $white;
       }
     }
   }
-  .tribe_events-template-default &,
+
   .page-template-default &,
   .archive &,
-  .page-template-page-sidebar-left &
+  .page-template-page-sidebar-left &,
+  .post-template-default &,
    {
     background: $cru-gold;
     border-top: $global-margin/2 solid $cru-gold;
-    .header .menu {
-      @include breakpoint(medium) {
-        background: $cru-gold;
-      }
+    @include breakpoint(medium up) {
+        background: $white;
+
+        .menu {
+          background: $white;
+        }
+    }
+  }
+  .post-template-default & {
+    @include breakpoint(small only) {
+      @include angle('after', true, 2deg);
+
     }
   }
 }
@@ -60,19 +103,40 @@
 // }
 .top-bar .top-bar-left {
   @include xy-cell(2);
+  z-index: 2;
+  @include breakpoint(small only) {
+    margin-bottom: -2rem;
+    .archive &, .blog &, .tribe_events-template-default & {
+      margin-bottom: 0;
+    }
+  }
+
 }
 
 .top-bar-right {
   @include xy-cell(auto);
   margin:0;
+
+
 }
 
-// Site title
+// Site title (logo)
 .site-desktop-title a {
 }
-
+// Site logo circular background;
 .site-desktop-title {
-  margin-top: $global-margin;
+  margin: 0;
+  background: $cru-gold;
+  margin: 1rem 0;
+  border-radius: 50%;
+  height: rem-calc(90);
+  width: rem-calc(90);
+  img {
+    position: relative;
+    width: rem-calc(80);
+    top: rem-calc(8);
+    left: rem-calc(2);
+  }
   .home & {
     background: $white;
     border-radius: 50%;
@@ -86,18 +150,24 @@
     top: rem-calc(9);
     left: rem-calc(2);
   }
-  .page-template-page-full-width &, .page-template-landing-page-full-width &,
-  .tribe_events-template-default &,
-  .page-template-default &,
-  .archive &,
-  .page-template-page-sidebar-left & {
-    margin: 1rem;
-    img {
-      position: relative;
-      width: rem-calc(80);
-      top: rem-calc(8);
-      left: rem-calc(2);
+
+  .post-template-default &, .page-template-page-full-width &,
+  .page-template-default &, .page-template-page-sidebar-left &,
+  .archive & {
+
+    @include breakpoint(small only) {
+      background: none;
+     }
+    @include breakpoint(medium up) {
+      background: $cru-gold;
     }
+
+    &:hover {
+      background: $cru-orange;
+    }
+  }
+  .page-template-ministry-landing &, .page-template-landing-page-full-width & {
+    background: $cru-red;
   }
 }
 
@@ -116,37 +186,39 @@ $menu-underline-from-center-border-thickness: 0.125rem;
   list-style: none;
   .nav-anchor {
     @include breakpoint(medium up) {
-      &.underline-from-center {
-          position: relative;
-          &::after {
-            content: "";
-            position: absolute;
-            top: calc(100% - #{$menu-underline-from-center-border-thickness});
-            border-bottom: $menu-underline-from-center-border-thickness solid $cru-gold;
-            left: 50%;
-            right: 50%;
-            transition: all 0.5s ease;
-          }
-
-          &:hover::after {
-            left: 0;
-            right: 0%;
-            transition: all 0.5s ease;
-          }
-        }
+      // &.underline-from-center {
+      //     position: relative;
+      //     &::after {
+      //       content: "";
+      //       position: absolute;
+      //       top: calc(100% - #{$menu-underline-from-center-border-thickness});
+      //       border-bottom: $menu-underline-from-center-border-thickness solid $cru-gold;
+      //       left: 50%;
+      //       right: 50%;
+      //       transition: all 0.5s ease;
+      //     }
+      //
+      //     &:hover::after {
+      //       left: 0;
+      //       right: 0%;
+      //       transition: all 0.5s ease;
+      //     }
+      //   }
     }
     &:hover:not(.button) {
+
       .menu-title {
         @include breakpoint(medium up) {
-
-          text-shadow: 0px 1px 2px #000;
-          color: #fff;
+          color: $cru-orange;
+          .home & {
+            color: rgba(255,255,255,0.4);
+            text-shadow: 0px 1px 1px #333;
+          }
         }
         @include breakpoint(small only) {
             color: $cru-gold;
         }
-        transition: all;
-        transition-duration: 0.5s;
+        transition: color linear 0.3s;
       }
 
     }
@@ -157,12 +229,12 @@ $menu-underline-from-center-border-thickness: 0.125rem;
   .is-closed .menu .nav-anchor {
     padding: 0.5rem 0.5rem;
   }
-
+  // default menu-title styles
   .menu-title {
     line-height: 1;
     margin: 0;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.8);
+    color: $cru-gold;
     font-weight: 600;
     transition: all;
     transition-duration: 0.5s;
@@ -189,12 +261,12 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     }
     .menu-title {
       font-size: rem-calc(24);
-      color: $cru-blue;
+      color: $cru-red;
     }
     .is-submenu-item .nav-anchor {
       .menu-title {
         font-size: rem-calc(16);
-        color: $cru-blue;
+        color: $cru-red;
       }
       border-bottom: none;
     }
@@ -214,16 +286,20 @@ $menu-underline-from-center-border-thickness: 0.125rem;
   }
   @include breakpoint(medium up) {
     /* Use horizontal grid for medium breakpoint and up */
-    @include xy-grid(horizontal, false);
+    @include xy-grid(horizontal, true);
     width: 100%;
+    border-top: 2px solid $light-gray;
+    border-bottom: 2px solid $light-gray;
+    margin-left: 0;
     margin-top: 0;
     .nav-anchor {
-      color: $white;
+
+      // color: $white;
       .menu-title {
         @include xy-cell(shrink);
         font-size: rem-calc(16);
-        font-weight: 400;
         letter-spacing: 0.02rem;
+        margin: inherit 0;
       }
     }
     i.description {
@@ -276,37 +352,61 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     width: 19px
 }
 
-
 .header__nav-button::before
 {
-    background: $white;
-    height: 2px;
-    margin-top: -1px
-}
-
-.home .header__nav-button:before {
     background: $cru-gold;
     height: 2px;
     margin-top: -1px
 }
-
 .header__nav-button::after
 {
-    border: solid $white;
+    border: solid $cru-gold;
     border-width: 2px 0;
     height: 12px;
     margin-top: -6px
 }
+.post-template-default, .page-template-page-full-width,
+.page-template-default, .page-template-page-sidebar-left,
+.archive {
+  .header__nav-button::before
+  {
+      background: $white;
+      height: 2px;
+      margin-top: -1px
+  }
+  .header__nav-button::after
+  {
+      border: solid $white;
+      border-width: 2px 0;
+      height: 12px;
+      margin-top: -6px
+  }
+}
 
-.home .header__nav-button:after {
+.header__nav-button:before {
+    background: $cru-gold;
+    height: 2px;
+    margin-top: -1px
+}
+.page-template-landing-page-full-width .header__nav-button:before {
+    background: $cru-red;
+    height: 2px;
+    margin-top: -1px
+}
+
+
+.header__nav-button:after {
     border-color: $cru-gold;
+}
+.page-template-landing-page-full-width .header__nav-button:after {
+    border-color: $cru-red;
 }
 
 /* Default close button color is $cru-gold */
 .header__nav-button[aria-expanded="true"] {
   &:before, &:after {
     background: $cru-gold;
-    .page-template-page-full-width &, .page-template-landing-page-full-width & {
+    .page-template-page-full-width &, .page-template-ministry-landing &, .page-template-landing-page-full-width & {
       background: $cru-red;
     }
   }
@@ -325,7 +425,7 @@ $menu-underline-from-center-border-thickness: 0.125rem;
 .header__nav-button[aria-expanded="true"] {
   &:before, &:after {
     background: $cru-gold;
-    .page-template-page-full-width &, .page-template-landing-page-full-width & {
+    .page-template-page-full-width &, .page-template-ministry-landing &, .page-template-landing-page-full-width & {
       background: $cru-red;
     }
   }
@@ -344,20 +444,20 @@ $menu-underline-from-center-border-thickness: 0.125rem;
   }
 }
 .top-bar-right, .home .top-bar-right {
-  @include breakpoint(small) {
+  @include breakpoint(small only) {
     border-color: $cru-gold;
   }
 }
 
 .top-bar-right {
-    @include breakpoint(small) {
+    @include breakpoint(small only) {
       .tribe_events-template-default &,
       .page-template-default &,
       .archive &,
-      .page-template-page-sidebar-left & {
+      .page-template-default & {
         border-color: $cru-gold;
       }
-      .page-template-page-full-width &, .page-template-landing-page-full-width & {
+      .page-template-page-full-width &, .page-template-ministry-landing &, .page-template-landing-page-full-width & {
         border-color: $cru-red;
       }
     }
@@ -372,7 +472,7 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     color: $cru-gold;
   }
 
-  .menu>li:not(.menu-text)>a { padding: 1rem 0.5rem; }
+  .menu>li:not(.menu-text)>a { padding: 1rem 0.5rem 1rem 0.5rem; }
 
   .menu li:not(:last-child) { border-right: none; }
 
@@ -380,11 +480,21 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     border: none;
   }
   ul.is-dropdown-submenu {
+    box-shadow: 0px 1px 2px 0px $cru-gray;
+    background-color: $white;
+    color: $black;
     .home & {
-      background-color: $cru-gold;
+      background-color: rgba(255,255,255,0.8);
+      .menu-title {
+        color: $black;
+      }
     }
-    .page-template-page-full-width &, .page-template-landing-page-full-width & {
-      background-color: $cru-red;
+    .post-template-default &,
+    .page-template-page-full-width &,
+    .page-template-ministry-landing &, .page-template-landing-page-full-width &,
+    .page-template-kitchen-sink & {
+      background-color: $white;
+      color: $black;
     }
   }
   .dropdown.menu .has-submenu.is-down-arrow a { color: $cru-red; padding-right: 1rem; }

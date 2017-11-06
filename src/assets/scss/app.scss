@@ -47,7 +47,6 @@
 @include foundation-visibility-classes;
 // @include foundation-float-classes;
 @include foundation-flex-classes;
-
 @include foundation-prototype-classes;
 // Global
 
@@ -56,6 +55,7 @@
 @import "global/wp-admin";
 @import "global/wp-overrides";
 @import "components/angled-edge";
+@import "components/pull-quote";
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
@@ -80,6 +80,7 @@
 @import "components/dividers";
 @import "components/links";
 @import "components/events";
+@import "components/timeline";
 
 // Templates
 @import "templates/front";

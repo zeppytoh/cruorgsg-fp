@@ -1,11 +1,22 @@
 
+
 .main-wrap {
   @include xy-grid-container();
   @include xy-grid();
   margin: 0 auto;
   margin-top: $global-margin;
+  ul {
+    list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="#ccc" cx="5" cy="5" r="3"/></svg>');
+  }
+  @include breakpoint(small only) {
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+    }
+  }
+
   @include breakpoint(medium) {
-    margin-top: $global-margin*3;
+    margin-top: $global-margin*2;
+    margin-bottom: $global-margin*3;
 
   }
 
@@ -19,13 +30,13 @@
     // ... and to the left on medium-up screens, when using the sidebar-left template
       @include breakpoint(medium) {
         .main-content { order: 2; }
-        .sidebar { @include angle('before', false, 3deg); order: 1; }
+        .sidebar { order: 1; }
       }
   }
 
   // Full width template
   &.full-width {
-    margin: $global-margin auto;
+    @include xy-grid-container(full);
     @include breakpoint(small) {
       margin: $global-margin $global-margin 0;
     }
@@ -35,7 +46,6 @@
   }
 
   .main-content {
-
     // Default template
     @include breakpoint(small) {
       @include xy-cell(12);
@@ -43,30 +53,69 @@
     }
 
     @include breakpoint(medium) {
-      @include xy-cell(8);
+      @include xy-cell(auto);
+      @include xy-gutters($grid-padding-gutters, padding, top left right);
+
+    }
+    @include breakpoint(large) {
+      padding: 0;
+
     }
 
-  }
 
-  .sidebar {
-    background-color: $light-gray;
-    @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top left right);
-    border-radius: $global-radius;
-    @include angle('before', true, 3deg);
-    @include breakpoint(small) {
-      @include xy-cell(12);
+    ul.orbit-container {
+      list-style: none;
+      margin-left: 0;
     }
-
-    @include breakpoint(medium) {
-      @include xy-cell(4);
-      margin-top: 1rem;
-    }
-
   }
 }
+.post-template-default .main-content {
+  @include xy-cell(12);
+}
+
+
+// end of main-wrap
+
+.sidebar {
+  // background: linear-gradient(180deg, $light-gray 1px, white 40px, white);
+  ul {
+    margin-left: 0;
+    list-style-type: none;
+    list-style-image:none;
+  }
+  h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: left right);
+  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: bottom);
+  // @include angle('before', true, 3deg);
+  @include breakpoint(small only) {
+    @include xy-cell(12);
+    background: $light-gray;
+    padding-top: $global-padding;
+  }
+  @include breakpoint(medium) {
+    @include xy-cell(4);
+    padding: 0;
+  }
+  @include breakpoint(large) {
+    @include xy-cell(4);
+  }
+}
+
+
+
 .featured-header {
   @include xy-grid-container(full);
   @include xy-grid(vertical, false);
+
+  .featured-hero {
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
+    .title-wrapper {
+      background: none;
+    }
+  }
   @include breakpoint(small only) {
     .featured-hero {
       order: 2;
@@ -83,13 +132,21 @@
       order: 2;
     }
   }
+  .page-template-landing-page-full-width &, .post-template-default &, .page-template-ministry-landing & {
+    margin-top: -5rem;
+    @include breakpoint(medium) {
+      margin-top: -8rem;
+    }
+  }
   // innerpage
   .title-wrapper {
-    @include xy-cell(full);
+    @include xy-grid();
     @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
-    margin: 0 inherit;
+    @include xy-gutters($grid-padding-gutters, padding, left right);
     @include breakpoint(small only) {
       @include angle('after', true, 2deg);
+      @include flex-align($x: right, $y: stretch);
+      height: rem-calc(50);
     }
     .page-template-default &,
     .page-template-page-sidebar-left & {
@@ -102,26 +159,179 @@
     .page-template-default &,
     .page-template-page-sidebar-left & {
       @include breakpoint(medium up) {
+        @include xy-cell;
         @include xy-grid-container();
-        background-color: $white;
+        background: none;
+        @include xy-gutters($grid-padding-gutters, padding, left right);
+        padding-top: $global-padding*3;
+      }
+    }
+    .page-template-page-sidebar-left &, .page-template-page-full-width & {
+      @include breakpoint(medium) {
+        @include flex-align(center);
+      }
+    }
+    .page-template-ministry-landing & {
+      @include breakpoint(medium up) {
+        @include xy-cell;
+        @include xy-grid-container();
+        @include xy-gutters($grid-padding-gutters, padding, left right);
+
+        background: none;
+        margin-top: -3rem;
+
       }
     }
 
-  }
-
   h1.entry-title {
-    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
+    @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top left right);
+
+
     text-align: right;
     color: $white;
+    font-weight: 600;
     text-transform: uppercase;
-    @include breakpoint(medium) {
-      text-align: left;
-      color: $header-color;
-      border-bottom: 2px solid $cru-cyan;
+    margin-bottom: 0;
+    @include breakpoint(medium up) {
+      text-align: center;
+      color: $cru-gray;
+      margin-bottom: 0.5rem;
+      border-bottom: $global-margin/3 solid $light-gray;
+      padding: 0;
     }
-
+  }
   }
 }
 ol.tribe-list-widget {
   list-style: none;
+}
+
+.content-footer-section {
+  background: none;
+}
+
+.gallery {
+  @include xy-grid();
+
+  padding: 0;
+  margin: 0;
+  .gallery-caption {
+    line-height: 1.2;
+    color: $cru-gray;
+    padding: $global-padding/2;
+  }
+}
+.gallery-columns-1 {
+  @include xy-grid-layout(1, '.gallery-item');
+  @include xy-grid-collapse('.gallery-item', margin, left);
+
+}
+.gallery-columns-2 {
+  @include xy-grid-layout(2, '.gallery-item');
+  @include xy-grid-collapse('.gallery-item', margin, left);
+
+}
+.gallery-columns-3 {
+  @include breakpoint(small only) {
+    @include xy-grid-layout(3, '.gallery-item');
+  }
+  @include breakpoint(medium) {
+    @include xy-grid-layout(3, '.gallery-item');
+  }
+  @include xy-grid-collapse('.gallery-item', margin, left);
+
+}
+.gallery-columns-4 {
+  @include breakpoint(small only) {
+    @include xy-grid-layout(4, '.gallery-item');
+  }
+  @include breakpoint(medium) {
+    @include xy-grid-layout(4, '.gallery-item');
+  }
+  @include xy-grid-collapse('.gallery-item', margin, left);
+
+}
+.gallery-columns-5 {
+  @include breakpoint(small only) {
+    @include xy-grid-layout(3, '.gallery-item');
+  }
+  @include breakpoint(medium) {
+    @include xy-grid-layout(5, '.gallery-item');
+  }
+  @include xy-grid-collapse('.gallery-item', margin, left);
+
+}
+.gallery-columns-6 {
+  @include breakpoint(small only) {
+    @include xy-grid-layout(3, '.gallery-item');
+  }
+  @include breakpoint(medium) {
+    @include xy-grid-layout(6, '.gallery-item');
+  }
+  @include xy-grid-collapse('.gallery-item', margin, left);
+}
+.gallery-item {
+  padding: 0;
+  margin: 0;
+  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: top bottom);
+
+}
+
+// .gallery {
+//   @include xy-grid(horizontal, true);
+//   .gallery-item {
+//     @include xy-cell(auto);
+//   }
+// }
+// entry-meta styling
+.entry-meta, .entry-tags {
+  border-top: 1px solid $light-gray;
+  color: $cru-gray;
+
+  a {
+    &:before {
+      content: '#';
+    }
+  }
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1.2;
+  .fa {
+    font-size: 0.8em;
+    color: $anchor-color;
+    margin-left: $global-margin/2;
+  }
+}
+// post navigation
+.post-navigation, .tribe-events-sub-nav, .tribe-events-back {
+  border-top: 1px solid $light-gray;
+  border-bottom: 1px solid $light-gray;
+  font-size: 0.8em;
+  a {
+    color: $cru-gray;
+
+  }
+  .nav-next:after {
+    content: ' \276F';
+    color: $cru-gray;
+
+  }
+  .nav-previous:before {
+    content: '\276E  ';
+    color: $cru-gray;
+
+  }
+}
+.post-navigation {
+  margin: $global-margin*3 0 $global-margin 0;
+}
+
+// comments section#respond
+
+section#respond {
+  background-color: $light-gray;
+  @include xy-gutters($grid-padding-gutters, padding, top left right);
+  #allowed_tags.small {
+    font-size: 0.8em;
+  }
 }

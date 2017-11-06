@@ -4,12 +4,12 @@ Template Name: Full Width
 */
 get_header(); ?>
 <header class="featured-header">
-<?php get_template_part( 'template-parts/featured-image' ); ?>
 	<div class="title-wrapper">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</div>
+	<?php get_template_part( 'template-parts/featured-image' ); ?>
 </header>
-<div class="main-wrap full-width" role="main">
+<section class="main-wrap" role="main">
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 	<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
@@ -29,6 +29,7 @@ get_header(); ?>
 			?>
 			<p><?php the_tags(); ?></p>
 		</footer>
+
 		<?php do_action( 'foundationpress_page_before_comments' ); ?>
 		<?php comments_template(); ?>
 		<?php do_action( 'foundationpress_page_after_comments' ); ?>
@@ -37,6 +38,22 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 
-</div>
-<?php get_sidebar('content-footer'); ?>
+</section>
+<section class="home-sections content-footer-section">
+	<div class="home-section-wrapper">
+		<section class="cf-secondary">
+			<div class="home-grid">
+
+				<?php get_sidebar('content-footer'); ?>
+
+			</div> <!--grid-container-->
+		</section>
+		<section class="cf-tertiary">
+			<div class="home-grid grid-x">
+
+				<?php get_sidebar('front-social-media'); ?>
+			</div>
+		</section>
+	</div>
+</section>
 <?php get_footer();

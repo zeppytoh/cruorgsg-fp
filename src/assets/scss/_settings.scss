@@ -62,14 +62,13 @@
 //  56. Xy Grid
 
 @import 'util/util';
-@import 'global/colors';
 
 // 1. Global
 // ---------
 
 $global-font-size: 110%;
 $global-width: rem-calc(1200);
-$global-lineheight: 1.6;
+$global-lineheight: 180%;
 $foundation-palette: (
   primary: #007398,
   secondary: #908b90,
@@ -91,7 +90,7 @@ $global-padding: 1rem;
 $global-position: 1rem;
 $global-weight-normal: 400;
 $global-weight-bold: 600;
-$global-radius: rem-calc(3);
+$global-radius: rem-calc(0);
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
@@ -131,8 +130,8 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
-$header-font-weight: 300;
+$header-font-family: "freight-sans-pro", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$header-font-weight: 600;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
@@ -159,7 +158,7 @@ $header-styles: (
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $dark-gray;
-$paragraph-lineheight: 1.5;
+$paragraph-lineheight: 160%;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
 $code-color: $black;
@@ -815,7 +814,7 @@ $thumbnail-radius: $global-radius;
 // 53. Title Bar
 // -------------
 
-$titlebar-background: $dark-nav-color;
+$titlebar-background: $primary-color;
 $titlebar-color: $white;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
@@ -846,7 +845,7 @@ $topbar-background: rgba(0,0,0,0.5);
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
-$topbar-unstack-breakpoint: medium;
+$topbar-unstack-breakpoint: small;
 
 // 56. Xy Grid
 // -----------

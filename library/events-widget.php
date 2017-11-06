@@ -8,7 +8,7 @@
 
 
 /* Custom query for event list widget*/
-function crusg_get_list_widget_events ( ){
+function crusg_get_list_widget_events (){
 
     // uncoment the line below and fill in your custom args
     //$args =  array( 'start_date' => $today )

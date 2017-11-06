@@ -4,12 +4,12 @@ Template Name: Left Sidebar
 */
 get_header(); ?>
 <header class="featured-header">
-<?php get_template_part( 'template-parts/featured-image' ); ?>
 	<div class="title-wrapper">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</div>
+	<?php get_template_part( 'template-parts/featured-image' ); ?>
 </header>
-<div class="main-wrap sidebar-left" role="main">
+<section class="main-wrap sidebar-left" role="main">
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 	<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
@@ -37,6 +37,6 @@ get_header(); ?>
 <?php do_action( 'foundationpress_after_content' ); ?>
 <?php get_sidebar(); ?>
 
-</div>
+</section>
 
 <?php get_footer();

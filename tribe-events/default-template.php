@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header(); ?>
+
 <div class="main-wrap" role="main">
 	<article class="main-content">
 <?php do_action( 'foundationpress_before_content' ); ?>

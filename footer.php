@@ -32,7 +32,7 @@
 
 										<li><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>18 Verdun Road
 #04-01 Singapore 207280</li>
-										<li class="registration_no small">Reg. No. 197200238N GST Reg. No. MB8100372-X</li>
+										<li class="registration_no small">Reg.No. 197200238N GST Reg.No. MB8100372-X</li>
 								</ul>
 						</div>
 				</div>

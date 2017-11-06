@@ -17,7 +17,8 @@ get_header(); ?>
 	<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
 		<header>
 			<h1 class="entry-title"><?php the_title(); ?></h1>
-			<?php foundationpress_entry_meta(); ?>
+			<p class="entry-meta"><?php foundationpress_entry_meta(); ?>
+<i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp;<?php the_tags('', ' '); ?></p>
 		</header>
 		<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 		<div class="entry-content">
@@ -33,7 +34,7 @@ get_header(); ?>
 					)
 				);
 			?>
-			<p><?php the_tags(); ?></p>
+			<!-- <p><?php the_tags(); ?></p> -->
 		</footer>
 		<?php the_post_navigation(); ?>
 		<?php do_action( 'foundationpress_post_before_comments' ); ?>

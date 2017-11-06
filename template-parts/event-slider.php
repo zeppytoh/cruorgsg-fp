@@ -12,7 +12,8 @@
  }
 $events_label_plural = tribe_get_event_label_plural();
 $events_label_plural_lowercase = tribe_get_event_label_plural_lowercase();
-$posts= crusg_get_list_widget_events();
+// $posts= crusg_get_list_widget_events();
+$posts = tribe_get_events( array( 'end_date' => $today ));
 if ( $posts ) : ?>
 <ol class="tribe-list-widget">
 	<?php

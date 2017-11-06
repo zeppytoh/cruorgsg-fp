@@ -121,7 +121,10 @@
   margin-top: rem-calc(0);
   background: darken($dark-gray, 40%);
 
-
+  .registration_no {
+    color: $cru-gray;
+    font-size: 0.9em;
+  }
   #footer-contact-details {
     @include xy-grid(horizontal);
 
@@ -158,22 +161,28 @@
        font-size: 0.9rem;
        .fa {
          padding: 0 0.4rem;
+         color: $cru-gray;
          }
      }
  .footer-right {
     ul {
-
+      @include flex-align(right);
+      @include breakpoint(small only) {
+        @include flex-align(center);
+      }
      li {
        a {
          color: $cru-gray;
        }
-
+       &.is-active a {
+         background: none !important;
+       }
      }
    }
    @include breakpoint(small) {
-     @include xy-cell(10);
+     @include xy-cell(12);
      margin: 0 auto;
-   }
+  }
    @include breakpoint(medium) {
    @include xy-cell(6);
    }
@@ -182,13 +191,13 @@
 
    }
    font-size: 0.9rem;
-   .fa {padding: 0 0.4rem;}
+   .fa {padding: 0 0.4rem; }
    }
  }
 }
 #footer-contact-details-container {
   border-bottom: $cru-gold $global-margin/2 solid;
-  .page-template-page-full-width &, .page-template-landing-page-full-width & {
+  .page-template-landing-page-full-width & {
     border-color: $cru-red;
   }
 }

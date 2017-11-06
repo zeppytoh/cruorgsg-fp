@@ -3,11 +3,13 @@
   background-position: center;
   background-repeat: no-repeat;
   height: rem-calc(200);
-  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
+  // @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: right);
   @include xy-cell(shrink);
-
   @include breakpoint(medium) {
     height: rem-calc(300);
+    .page-template-landing-page-full-width & {
+      height: 50vh;
+    }
   }
 
   @include breakpoint(xlarge) {
