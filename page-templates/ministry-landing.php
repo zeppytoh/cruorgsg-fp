@@ -7,9 +7,10 @@ get_header(); ?>
 	<div class="title-wrapper">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</div>
-	<?php get_template_part( 'template-parts/featured-image-title' ); ?>
+	<?php get_template_part( 'template-parts/featured-image' ); ?>
 </header>
 <section class="main-wrap" role="main">
+	<div class="main-content">
 <?php /* Start loop */ ?>
 <?php while ( have_posts() ) : the_post(); ?>
 	<?php do_action( 'foundationpress_before_content' ); ?>
@@ -17,13 +18,14 @@ get_header(); ?>
 	<?php the_content(); ?>
 	<?php do_action( 'foundationpress_after_content' ); ?>
 <?php endwhile;?>
+</div> <!-- .main-content -->
 </section>
 <section class="content-footer-section related">
 	<div class="home-section-wrapper">
 		<section class="cf-secondary">
 			<div class="home-grid">
-				<h3 class="main-heading"><span class="first-line">Check out our</span> <span class="title-word">Events</span> </h3>
-				<?php get_template_part( 'template-parts/event-slider' ); ?>
+				<h3 class="main-heading"><span class="first-line">Check out our</span> <span class="title-word">Special Events</span> </h3>
+				<?php get_template_part( 'template-parts/category-event-slider' ); ?>
 
 			</div> <!--grid-container-->
 		</section>

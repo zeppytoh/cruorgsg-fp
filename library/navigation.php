@@ -125,7 +125,7 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 		global $post,$wp_query;
 		$category = get_the_category();
 
-		// Build the breadcrums
+		// Build the breadcrumbs
 		echo '<ul id="' . $id . '" class="' . $class . '">';
 
 		// Do not display on the homepage

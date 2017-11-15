@@ -4,6 +4,9 @@ Template Name: Landing-Page-Full Width
 */
 get_header(); ?>
 <header class="featured-header">
+	<div class="title-wrapper">
+		<h1 class="entry-title"><?php the_title(); ?></h1>
+	</div>
 	<?php get_template_part( 'template-parts/featured-image' ); ?>
 </header>
 <section class="intro">

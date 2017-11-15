@@ -3,8 +3,6 @@
 .main-wrap {
   @include xy-grid-container();
   @include xy-grid();
-  margin: 0 auto;
-  margin-top: $global-margin;
   ul {
     list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="#ccc" cx="5" cy="5" r="3"/></svg>');
   }
@@ -14,7 +12,7 @@
     }
   }
 
-  @include breakpoint(medium) {
+  @include breakpoint(medium up) {
     margin-top: $global-margin*2;
     margin-bottom: $global-margin*3;
 
@@ -34,30 +32,42 @@
       }
   }
 
-  // Full width template
+  // Full width template, no sidebars
   &.full-width {
     @include xy-grid-container(full);
+    @include flex-align(center);
     @include breakpoint(small) {
-      margin: $global-margin $global-margin 0;
     }
     .main-content {
-      @include xy-cell(12);
+      @include breakpoint(small) {
+        @include xy-cell(12);
+      }
+      @include breakpoint(medium) {
+        @include xy-cell(9);
+      }
+      @include breakpoint(large) {
+        @include xy-cell(10);
+      }
+      @include breakpoint(xlarge up) {
+        @include xy-cell(12);
+      }
     }
   }
 
   .main-content {
+    @include xy-cell(auto);
+    @include xy-gutters($grid-padding-gutters,$gutter-type: padding, $gutter-position: left right);
     // Default template
     @include breakpoint(small) {
-      @include xy-cell(12);
       @include xy-gutters($grid-padding-gutters,$gutter-type: padding, $gutter-position: left right);
     }
 
     @include breakpoint(medium) {
-      @include xy-cell(auto);
       @include xy-gutters($grid-padding-gutters, padding, top left right);
 
     }
     @include breakpoint(large) {
+
       padding: 0;
 
     }
@@ -75,14 +85,15 @@
 
 
 // end of main-wrap
-
+.sidebar, .menu, .main-wrap .menu {
+    ul {
+      margin-left: 0;
+      list-style-type: none;
+      list-style-image:none;
+    }
+}
 .sidebar {
   // background: linear-gradient(180deg, $light-gray 1px, white 40px, white);
-  ul {
-    margin-left: 0;
-    list-style-type: none;
-    list-style-image:none;
-  }
   h2, h3, h4, h5, h6 {
     font-weight: 400;
     text-transform: uppercase;

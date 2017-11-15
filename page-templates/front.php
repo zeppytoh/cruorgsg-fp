@@ -9,6 +9,19 @@ get_header(); ?>
 <?php the_content(); ?>
 <?php endwhile;?>
 <?php do_action( 'foundationpress_after_content' ); ?>
+<section class="home-sections">
+	<div class="home-section-wrapper">
+		<section class="articles">
+			<div class="home-grid">
+				<h3 class="main-heading"><span class="first-line">Read our recent</span> <span class="title-word">Articles</span> </h3>
+				<div class="grid-x grid-margin-x small-up-2 medium-up-4">
+				<?php get_template_part( 'template-parts/article-list' ); ?>
+				</div>
+			</div>
+		</section>
+	</div>
+</section>
+</section>
 <section class="home-sections updates">
 	<div class="home-section-wrapper">
 		<section class="events">
