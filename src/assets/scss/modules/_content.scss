@@ -3,6 +3,10 @@
 .main-wrap {
   @include xy-grid-container();
   @include xy-grid();
+  margin-top: 1rem;
+  @include breakpoint(medium) {
+    margin-top: 3rem;
+  }
   ul {
     list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="#ccc" cx="5" cy="5" r="3"/></svg>');
   }
@@ -20,44 +24,39 @@
 
   &.sidebar-left {
     // Place the sidebar below main content on small screens ...
-      @include breakpoint(small) {
-        .main-content { order: 1; }
-        .sidebar { order: 2; }
-      }
+    @include breakpoint(small) {
+      .main-content { order: 1; }
+      .sidebar { order: 2; }
+    }
 
     // ... and to the left on medium-up screens, when using the sidebar-left template
-      @include breakpoint(medium) {
-        .main-content { order: 2; }
-        .sidebar { order: 1; }
-      }
+    @include breakpoint(medium) {
+      .main-content { order: 2; }
+      .sidebar { order: 1; }
+    }
   }
 
-  // Full width template, no sidebars
-  &.full-width {
-    @include xy-grid-container(full);
-    @include flex-align(center);
+  // Full width template
+  .main-content-full-width {
     @include breakpoint(small) {
+      @include xy-cell(12);
     }
-    .main-content {
-      @include breakpoint(small) {
-        @include xy-cell(12);
-      }
-      @include breakpoint(medium) {
-        @include xy-cell(9);
-      }
-      @include breakpoint(large) {
-        @include xy-cell(10);
-      }
-      @include breakpoint(xlarge up) {
-        @include xy-cell(12);
-      }
+    @include breakpoint(medium) {
+      @include xy-cell(9);
+    }
+    @include breakpoint(large) {
+      @include xy-cell(10);
+    }
+    @include breakpoint(xlarge up) {
+      @include xy-cell(12);
     }
   }
 
+  // Default template
   .main-content {
     @include xy-cell(auto);
     @include xy-gutters($grid-padding-gutters,$gutter-type: padding, $gutter-position: left right);
-    // Default template
+
     @include breakpoint(small) {
       @include xy-gutters($grid-padding-gutters,$gutter-type: padding, $gutter-position: left right);
     }
@@ -78,44 +77,37 @@
       margin-left: 0;
     }
   }
-}
-.post-template-default .main-content {
-  @include xy-cell(12);
-}
-
-
-// end of main-wrap
-.sidebar, .menu, .main-wrap .menu {
-    ul {
-      margin-left: 0;
-      list-style-type: none;
-      list-style-image:none;
+  .sidebar, .menu, .main-wrap .menu {
+      ul {
+        margin-left: 0;
+        list-style-type: none;
+        list-style-image:none;
+      }
+  }
+  .sidebar {
+    // background: linear-gradient(180deg, $light-gray 1px, white 40px, white);
+    h2, h3, h4, h5, h6 {
+      font-weight: 400;
+      text-transform: uppercase;
     }
-}
-.sidebar {
-  // background: linear-gradient(180deg, $light-gray 1px, white 40px, white);
-  h2, h3, h4, h5, h6 {
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-  @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: left right);
-  @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: bottom);
-  // @include angle('before', true, 3deg);
-  @include breakpoint(small only) {
-    @include xy-cell(12);
-    background: $light-gray;
-    padding-top: $global-padding;
-  }
-  @include breakpoint(medium) {
-    @include xy-cell(4);
-    padding: 0;
-  }
-  @include breakpoint(large) {
-    @include xy-cell(4);
+    @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: left right);
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: bottom);
+    // @include angle('before', true, 3deg);
+    @include breakpoint(small only) {
+      @include xy-cell(12);
+      background: $light-gray;
+      padding-top: $global-padding;
+    }
+    @include breakpoint(medium) {
+      @include xy-cell(4);
+      padding: 0;
+    }
+    @include breakpoint(large) {
+      @include xy-cell(4);
+    }
   }
 }
-
-
+// end of main-wrap
 
 .featured-header {
   @include xy-grid-container(full);

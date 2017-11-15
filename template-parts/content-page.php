@@ -1,8 +1,7 @@
 <?php
 /**
- * The default template for displaying content
+ * The default template for displaying page content
  *
- * Used for both single and index/archive/search.
  *
  * @package FoundationPress
  * @since FoundationPress 1.0.0
@@ -12,13 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header>
-	<?php if ( is_single() ) {
-		the_title( '<h1 class="entry-title">', '</h1>' );
-		} else {
-		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		}
-	?>
-		<p class="entry-meta"><?php foundationpress_entry_meta(); ?></p>
+		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</header>
 	<div class="entry-content">
 		<?php the_content(); ?>
@@ -33,6 +26,6 @@
 				)
 			);
 		?>
-		<?php $tag = get_the_tags(); if ( $tag ) { ?><p class="entry-tags"><?php the_tags(); ?></p><?php } ?>
+		<?php $tag = get_the_tags(); if ( $tag ) { ?><p><?php the_tags(); ?></p><?php } ?>
 	</footer>
 </article>

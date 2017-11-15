@@ -17,18 +17,6 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-		<div id='fb-root'></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1432755250364071';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-	<?php do_action( 'foundationpress_after_body' ); ?>
-	<!-- added facebook javascript -->
-	<?php do_action( 'foundationpress_layout_start' ); ?>
-
 	<header class="site-header" role="banner">
 		<nav class="site-navigation top-bar header" role="navigation">
 			<div class="top-bar-left">
@@ -43,5 +31,5 @@
 		</nav>
     <a aria-label="Open Navigation Menu" href="#nav" class="header__nav-button hide-for-medium" role="button" data-toggle="inCanvasMenu"></a>
 	</header>
-	<section class="container">
-		<?php do_action( 'foundationpress_after_header' );
+
+	<div class="container">
