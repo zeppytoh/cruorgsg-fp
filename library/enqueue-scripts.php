@@ -38,7 +38,8 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 	wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/6ded49a063.js', array(), '4.7.0', false);
 	wp_enqueue_script( 'typekit', 'https://use.typekit.net/snk0mcr.js', array(), '', false );
-	wp_enqueue_script( 'loadtypekit', get_template_directory_uri() . '/dist/assets/js/typekit.js', array(), '', false );
+	wp_enqueue_script( 'loadtypekit', get_template_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path('typekit.js'), array(), '', false );
+
 	wp_enqueue_style( 'googlefont', 'https://fonts.googleapis.com/css?family=Oswald:400');
 	// Enqueue the main Stylesheet.
 	wp_enqueue_style( 'main-stylesheet',  get_template_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path('app.css'), array(), '2.10.4', 'all' );

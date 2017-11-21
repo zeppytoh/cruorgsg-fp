@@ -1,5 +1,5 @@
 $dark-nav-color: #2C3840;
-$cru-gold: #F0B626;
+$cru-gold: #f9b625;
 $cru-blue: #006398;
 $cru-cyan: #43B1C8;
 $cru-orange: #dd7d1b;
@@ -14,7 +14,6 @@ span[aria-label] {display: none}
 .button {
   border: 1px solid rgba(255,255,255,0.3);
   box-shadow: 1px 2px 2px #0d0d0d;
-  border-radius: $global-radius;
   a {
     color: white;
     text-transform: uppercase;

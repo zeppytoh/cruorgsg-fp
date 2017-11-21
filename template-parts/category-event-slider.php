@@ -13,21 +13,15 @@
  $today = date( 'Y-m-d H:i:s');
  $events_label_plural = tribe_get_event_label_plural();
  $events_label_plural_lowercase = tribe_get_event_label_plural_lowercase();
- // $posts= crusg_get_list_widget_events();
+ $category = get_post_meta($post->ID, "eventsCategory", true);
  $tribe_events_post_type = 'tribe_events';
  $tribe_events_post_args = array(
      'post_type'        => $tribe_events_post_type,
      'post_status'      => 'publish',
-     'posts_per_page'   => 2,
-     'tribe_events_cat' => 'missions',
+     'posts_per_page'   => 3,
+     'tribe_events_cat' => $category,
      'caller_get_posts' => -1,
-     'meta_query' => array(
-     array(
-       'key' => '_EventStartDate',
-       'value' => $today,
-       'compare' => '>=',
-       )
-     ),
+
      'orderby'=>'_EventStartDate',
                'order'            => 'DESC'
            );

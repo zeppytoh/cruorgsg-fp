@@ -55,6 +55,8 @@ require_once( 'library/responsive-images.php' );
 
 /** Custom event list displays */
 require_once( 'library/events-widget.php' );
+require_once( 'library/category-events.php' );
+
 
 /** Facebook JavaScript SDK */
 require_once( 'library/facebook-javascript.php' );

@@ -2,8 +2,8 @@
   @include xy-grid-container();
   @include xy-grid();
   margin-top: 1rem;
+
   ul {
-    /* special SVG unordered list bullets */
     list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="#ccc" cx="5" cy="5" r="3"/></svg>');
   }
   @include breakpoint(small only) {
@@ -33,22 +33,24 @@
 
   // Full width template
   .main-content-full-width {
-    @include xy-grid;
+      @include xy-grid;
     article {
       @include flex-align(center, middle);
+
     }
     .entry-content {
       @include breakpoint(small) {
-        @include xy-cell(12);
+        @include xy-cell(full);
       }
       @include breakpoint(medium up) {
         @include xy-cell(10);
         @include xy-cell-offset(1);
+
       }
     }
   }
 
-  // Default template for sidebars
+  // Default template
   .main-content {
     @include xy-cell(auto);
     @include xy-gutters($grid-padding-gutters,$gutter-type: padding, $gutter-position: left right);
@@ -60,20 +62,25 @@
 
     @include breakpoint(medium) {
       @include xy-gutters($grid-padding-gutters, padding, top left right);
+
     }
     @include breakpoint(large) {
+
       padding: 0;
+
+    }
+
+
+    ul.orbit-container {
+      list-style: none;
+      margin-left: 0;
     }
   }
-  ul.orbit-container {
-    list-style: none;
-    margin-left: 0;
-  }
-  .sidebar, .menu {
+  .sidebar, .menu, .main-wrap .menu {
       ul {
-          margin-left: 0;
-          list-style-type: none;
-          list-style-image:none;
+        margin-left: 0;
+        list-style-type: none;
+        list-style-image:none;
       }
   }
   .sidebar {
@@ -98,12 +105,12 @@
       @include xy-cell(4);
     }
   }
-} // end of main-wrap
+}
+// end of main-wrap
 
 .featured-header {
+  @include xy-grid(vertical, false);
   @include xy-grid-container(full);
-  @include xy-grid(vertical);
-
   .featured-hero {
     margin: 0;
     .title-wrapper {
@@ -126,10 +133,8 @@
       order: 2;
     }
   }
-  // specific top-margin changes for pages with featured-image for headers
-  .page-template-landing-page-full-width &,
-  .post-template-default &,
-  .page-template-page-ministry & {
+  .page-template-landing-page-full-width &, .post-template-default &, .page-template-ministry-landing & {
+
     @include breakpoint(small only) {
       margin-top: -5rem;
       .featured-hero {
@@ -144,23 +149,24 @@
     }
 
   }
-
-  .title-wrapper { // wrapper around the main page title
+  // innerpage
+  .title-wrapper {
     @include xy-grid();
     @include xy-gutters($grid-padding-gutters, padding, left right);
-    background: none; // default background none;
-    @include breakpoint(small only) { // all templates small breakpoint
-
+    @include breakpoint(small only) {
       @include angle('after', true, 2deg);
       @include flex-align($x: right, $y: stretch);
       height: rem-calc(50);
-
+      .page-template-default &,
+      .page-template-page-sidebar-left & {
+        background-color: $cru-gold;
+      }
     }
-
     @include breakpoint(medium up) {
-      @include flex-align(center);
-      // border-top: $global-margin/2 solid rgba(249,182,37,0.8);
 
+      @include flex-align(center);
+
+      border-top: $global-margin/2 solid rgba(249,182,37,0.8);
       background-color: rgba(0,0,0,0.2);
       @include xy-gutters($grid-padding-gutters, padding, left right);
       padding-top: $global-padding*3;

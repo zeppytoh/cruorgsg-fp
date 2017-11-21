@@ -129,4 +129,3 @@ function foundationpress_remove_figure_inline_style( $output, $attr, $content ) 
 
 }
 endif;
-

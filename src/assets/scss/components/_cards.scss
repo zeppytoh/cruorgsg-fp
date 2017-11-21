@@ -33,25 +33,27 @@ $card-user-profile-text-color: $body-font-color;
   &:hover {
     .card-user-profile-img {
       opacity: 1;
+
     }
   }
 }
 
 .card-user-profile-content {
   position: relative;
+  @include angle('before', true, 2deg);
 
-  &::before {
-    position: absolute;
-    content: '';
-    top: rem-calc(-55);
-    left: rem-calc(-30);
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: rem-calc(55) 0 0 rem-calc(500);
-    z-index: 0;
-    border-color: transparent transparent transparent $card-user-profile-bg;
-  }
+  // &::before {
+  //   position: absolute;
+  //   content: '';
+  //   top: rem-calc(-45);
+  //   left: rem-calc(-30);
+  //   width: 0;
+  //   height: 0;
+  //   border-style: solid;
+  //   border-width: rem-calc(55) 0 0 rem-calc(500);
+  //   z-index: 0;
+  //   border-color: transparent transparent transparent $card-user-profile-bg;
+  // }
 }
 
 .card-user-profile-actions {
@@ -64,6 +66,7 @@ $card-user-profile-text-color: $body-font-color;
   max-width: 100%;
   opacity: 0.85;
   transition: all 0.25s ease;
+
 }
 
 .card-user-profile-avatar {

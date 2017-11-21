@@ -1,0 +1,103 @@
+/* custom navigation and title heading colors per template */
+.site-header {
+  border-top: $global-margin/2 solid $cru-gold;
+  background: transparent;
+  @include breakpoint(small only) {
+    .page-template-default & {
+      background-color: $cru-gold;
+      border-color: $cru-red;
+    }
+  }
+  @include breakpoint(medium) {
+    .page-template-landing-page-full-width {
+      .nav-list {
+        background: rgba(0,0,0,0.4);
+      }
+      .menu-title {
+          color: $white;
+      }
+    }
+  }
+}
+.site-desktop-title {
+  // box-shadow: 1px 1px 2px $cru-gray;
+  @include breakpoint(small only) {
+    .page-template-default & {
+      background-color: $cru-red;
+    }
+  }
+}
+
+.title-wrapper {
+  @include breakpoint(small only) {
+    .page-template-default & {
+      background-color: $cru-gold;
+    }
+    .page-template-landing-page-full-width {
+      background: transparent;
+    }
+  }
+  @include breakpoint(medium) {
+    border-top: $global-margin/2 solid $cru-gold;
+  }
+}
+
+.header__nav-button::before {
+  background: $cru-gold;
+  .page-template-default & {
+    background: $white;
+  }
+}
+.header__nav-button::after {
+  border: solid $cru-gold;
+  .page-template-default & {
+    border-color: $white;
+  }
+  border-width: 2px 0;
+  height: 12px;
+  margin-top: -6px
+}
+.header__nav-button[aria-expanded="true"] {
+  &:before, &:after {
+    background: $cru-red;
+    .page-template-default & {
+      background: $cru-blue;
+    }
+  }
+  &:before {
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg)
+  }
+  &:after {
+    border: none;
+    height: 2px;
+    margin-top: -1px;
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+  }
+}
+
+.top-bar-right { // menu colours
+    @include breakpoint(small only) {
+      .tribe_events-template-default &,
+      .page-template-default &,
+      .archive &,
+      .page-template-default & {
+        border-color: $cru-red;
+      }
+      .page-template-ministry-landing &, .page-template-landing-page-full-width & {
+        border-color: $cru-red;
+      }
+      .page-template-page-full-width & {
+        border-color: $cru-orange;
+      }
+    }
+}
+
+#footer-contact-details-container {
+  .page-template-default &,
+  .page-template-page-full-width &,
+  .page-template-landing-page-full-width & {
+    border-color: $cru-red;
+  }
+}

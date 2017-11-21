@@ -2,7 +2,6 @@
 .site-header {
   @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
   position: relative;
-  border-top: $global-margin/2 solid $cru-gold;
   .header {
     @include xy-grid-container();
     margin: 0 auto;
@@ -17,10 +16,15 @@
             color: $black;
           }
         }
+        .home &.is-dropdown-submenu {
+          background-color: rgba(255,255,255,0.8);
+          .menu-title {
+            color: $cru-blue;
+          }
+        }
       }
     }
-    background: transparent;
-
+    background: none;
   }
   .home & {
     position: relative;
@@ -36,36 +40,15 @@
   //  z-index: 20;
   }
 
-  // menu-title
   .page-template-default &, .page-template-page-full-width & {
-    background: $cru-red;
     border-top: $global-margin/2 solid $cru-red;
+
     @include breakpoint(medium up) {
         background: $white;
 
         .menu {
           background: $white;
         }
-    }
-
-  }
-  .page-template-ministry-landing &, .page-template-landing-page-full-width & {
-    background: transparent;
-    border-top: $global-margin/2 solid $cru-red;
-    bottom: 0;
-    @include breakpoint(medium) {
-      .nav-list {
-        background: rgba(0,0,0,0.1);
-      }
-      .menu-title {
-          color: $white;
-      }
-    }
-
-    .menu-title {
-      @include breakpoint(medium) {
-        color: $white;
-      }
     }
   }
 
@@ -151,7 +134,7 @@
     left: rem-calc(2);
   }
 
-  .post-template-default &, .page-template-page-full-width &,
+  .post-template-default &,
   .page-template-default &, .page-template-page-sidebar-left &,
   .archive & {
 
@@ -165,9 +148,6 @@
     &:hover {
       background: $cru-orange;
     }
-  }
-  .page-template-ministry-landing &, .page-template-landing-page-full-width & {
-    background: $cru-red;
   }
 }
 
@@ -240,6 +220,7 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     transition-duration: 0.5s;
   }
 
+
   i.description {
     text-transform: lowercase;
     line-height: 0.9;
@@ -251,24 +232,56 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     margin-top: 2rem;
     @include xy-grid(vertical, false);
     height: 90%;
-    width: $offcanvas-size - 50px;
+    // width: $offcanvas-sizes - 50px;
     .nav-anchor {
       display: block;
       padding: 1rem 0;
       text-decoration: none;
       transition: all 0.12s ease-out;
-      border-bottom: 2px solid $light-gray;
     }
     .menu-title {
       font-size: rem-calc(24);
-      color: $cru-red;
+      color: $cru-orange;
     }
-    .is-submenu-item .nav-anchor {
+    .menu-title:before {
+      font-family: FontAwesome;
+      left:-0.5rem;
+      position:relative;
+      top:4px;
+   }
+   .menu-communities .menu-title:before {
+      content: "\f0c0";  /* this is your text. You can also use UTF-8 character codes as I do here */
+   }
+   .menu-training .menu-title:before {
+     content: "\f0ad";
+   }
+   .menu-missions .menu-title:before {
+     content: "\f0ac";
+   }
+   .menu-join .menu-title:before {
+     content: "\f040";
+   }
+   .menu-give .menu-title:before {
+     content: "\f0d6";
+   }
+   .menu-about .menu-title:before {
+     content: "\f05a";
+   }
+  .is-submenu-item .nav-anchor {
       .menu-title {
         font-size: rem-calc(16);
         color: $cru-red;
+        margin-left: 0.5rem;
+        &:before {
+          content: none;
+        }
       }
       border-bottom: none;
+    }
+    i.description {
+      font-size:80%;
+      color: $dark-gray;
+      margin-left: 1.5rem;
     }
     .minor {
       .menu-title {font-size: rem-calc(20); color: $dark-gray;}
@@ -277,12 +290,11 @@ $menu-underline-from-center-border-thickness: 0.125rem;
       .nav-anchor {
         border-bottom: none;
       }
+      i.description {
+        margin-left: 20px;
+      }
+    }
 
-    }
-    i.description {
-      font-size:80%;
-      color: $dark-gray;
-    }
   }
   @include breakpoint(medium up) {
     /* Use horizontal grid for medium breakpoint and up */
@@ -371,13 +383,13 @@ $menu-underline-from-center-border-thickness: 0.125rem;
 .archive {
   .header__nav-button::before
   {
-      background: $white;
+      background: $cru-gray;
       height: 2px;
       margin-top: -1px
   }
   .header__nav-button::after
   {
-      border: solid $white;
+      border: solid $cru-gray;
       border-width: 2px 0;
       height: 12px;
       margin-top: -6px
@@ -407,9 +419,7 @@ $menu-underline-from-center-border-thickness: 0.125rem;
 .header__nav-button[aria-expanded="true"] {
   &:before, &:after {
     background: $cru-gold;
-    .page-template-page-full-width &, .page-template-ministry-landing &, .page-template-landing-page-full-width & {
-      background: $cru-red;
-    }
+
   }
   &:before {
     -ms-transform: rotate(45deg);
@@ -423,15 +433,7 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     transform: rotate(-45deg)
   }
 }
-.header__nav-button[aria-expanded="true"] {
-  &:before, &:after {
-    background: $cru-gold;
-    .page-template-page-full-width &, .page-template-ministry-landing &, .page-template-landing-page-full-width & {
-      background: $cru-red;
-    }
-  }
 
-}
 
 
 // Tablet and desktop menu
@@ -450,19 +452,7 @@ $menu-underline-from-center-border-thickness: 0.125rem;
   }
 }
 
-.top-bar-right {
-    @include breakpoint(small only) {
-      .tribe_events-template-default &,
-      .page-template-default &,
-      .archive &,
-      .page-template-default & {
-        border-color: $cru-gold;
-      }
-      .page-template-page-full-width &, .page-template-ministry-landing &, .page-template-landing-page-full-width & {
-        border-color: $cru-red;
-      }
-    }
-}
+
 .site-navigation {
   @include breakpoint(small only) {
     padding: 0; // prevents container visibility on small screens
@@ -482,23 +472,10 @@ $menu-underline-from-center-border-thickness: 0.125rem;
   }
   ul.is-dropdown-submenu {
     box-shadow: 0px 1px 2px 0px $cru-gray;
-    background-color: $white;
-    color: $black;
-    .home & {
-      background-color: rgba(255,255,255,0.8);
-      .menu-title {
-        color: $black;
-      }
-    }
-    .post-template-default &,
-    .page-template-page-full-width &,
-    .page-template-ministry-landing &, .page-template-landing-page-full-width &,
-    .page-template-kitchen-sink & {
-      background-color: $white;
-      color: $black;
-    }
+
+
   }
-  .dropdown.menu .has-submenu.is-down-arrow a { color: $cru-red; padding-right: 1rem; }
+  .dropdown.menu .has-submenu.is-down-arrow a { color: $cru-orange; padding-right: 1rem; }
   .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
   .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
 }

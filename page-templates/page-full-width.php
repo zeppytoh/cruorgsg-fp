@@ -17,21 +17,5 @@ get_header(); ?>
 		<?php endwhile;?>
 	</main>
 </div>
-<div class="home-sections content-footer-section">
-	<div class="home-section-wrapper">
-		<section class="cf-secondary">
-			<div class="home-grid">
 
-				<?php get_sidebar('content-footer'); ?>
-
-			</div> <!--grid-container-->
-		</section>
-		<section class="cf-tertiary">
-			<div class="home-grid grid-x">
-
-				<?php get_sidebar('front-social-media'); ?>
-			</div>
-		</section>
-	</div>
-<div>
 <?php get_footer();
