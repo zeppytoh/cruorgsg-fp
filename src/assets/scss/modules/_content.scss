@@ -1,27 +1,42 @@
 .main-wrap {
-  @include xy-grid-container();
+  margin: $global-margin*2;
   @include xy-grid();
-  margin-top: 1rem;
   ul {
     /* special SVG unordered list bullets */
     list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="#ccc" cx="5" cy="5" r="3"/></svg>');
   }
   @include breakpoint(small only) {
+    @include xy-cell();
+    margin-top: 1rem;
     h1, h2, h3, h4, h5, h6 {
       font-weight: 600;
+      text-transform: uppercase;
     }
   }
 
-  @include breakpoint(medium up) {
-    margin-top: $global-margin*2;
+  @include breakpoint(medium) {
+    .page-template-default &, .post-template-default & {
+      margin-top: $global-margin*2;
+    }
+    @include xy-cell(10 of 12);
+    @include xy-cell-offset(1);
+    padding: 0;
+    background: $white;
+  }
+  @include breakpoint(large up) {
+    @include xy-grid-container();
     margin-bottom: $global-margin*3;
+
   }
 
   &.sidebar-left {
-    // Place the sidebar below main content on small screens ...
     @include breakpoint(small) {
-      .main-content { order: 1; }
-      .sidebar { order: 2; }
+      .main-content { order: 2; }
+      .sidebar {
+        order: 1;
+        @include angle('after', true, 2deg);
+        margin-bottom: $global-margin*2;
+      }
     }
 
     // ... and to the left on medium-up screens, when using the sidebar-left template
@@ -33,37 +48,40 @@
 
   // Full width template
   .main-content-full-width {
-    @include xy-grid;
-    article {
-      @include flex-align(center, middle);
+    padding: 0;
+    @include breakpoint(small only) {
+      @include xy-cell(105%);
+      margin: 0;
+      @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: left right);
+      @include angle('before', true, 2deg);
+
     }
-    .entry-content {
-      @include breakpoint(small) {
+
+    @include breakpoint(medium) {
+      @include xy-cell(9);
+      @include xy-cell-offset(1.5);
+      .page-id-32 & {
         @include xy-cell(12);
-      }
-      @include breakpoint(medium up) {
-        @include xy-cell(10);
-        @include xy-cell-offset(1);
+        @include xy-cell-offset(0);
       }
     }
+
   }
 
   // Default template for sidebars
   .main-content {
-    @include xy-cell(auto);
     @include xy-gutters($grid-padding-gutters,$gutter-type: padding, $gutter-position: left right);
+      @include breakpoint(small) {
+        @include xy-cell(105%);
+        margin: 0;
+        margin-bottom: $global-margin;
+      }
 
-    @include breakpoint(small) {
-      @include xy-cell(12);
-      @include xy-gutters($grid-padding-gutters,$gutter-type: padding, $gutter-position: left right);
-    }
+      @include breakpoint(medium) {
+        @include xy-cell(8);
+        @include xy-gutters($grid-padding-gutters, padding, left right);
+      }
 
-    @include breakpoint(medium) {
-      @include xy-gutters($grid-padding-gutters, padding, top left right);
-    }
-    @include breakpoint(large) {
-      padding: 0;
-    }
   }
   ul.orbit-container {
     list-style: none;
@@ -84,17 +102,14 @@
     }
     @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: left right);
     @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: bottom);
-    // @include angle('before', true, 3deg);
     @include breakpoint(small only) {
-      @include xy-cell(12);
+      @include xy-cell(110%);
       background: $light-gray;
-      padding-top: $global-padding;
+      padding: $global-padding;
+      margin: 0;
+      @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: bottom);
     }
     @include breakpoint(medium) {
-      @include xy-cell(4);
-      padding: 0;
-    }
-    @include breakpoint(large) {
       @include xy-cell(4);
     }
   }
@@ -103,12 +118,19 @@
 .featured-header {
   @include xy-grid-container(full);
   @include xy-grid(vertical);
-
   .featured-hero {
     margin: 0;
-    .title-wrapper {
-      background: none;
+  }
+  .title-wrapper {
+    @include breakpoint(medium) {
+      @include xy-cell(10 of 12);
+      @include xy-cell-offset(1);
     }
+    @include breakpoint(large up) {
+      @include xy-grid-container();
+    }
+    margin: 0;
+    padding: 0;
   }
   @include breakpoint(small only) {
     .featured-hero {
@@ -124,16 +146,24 @@
     }
     .title-wrapper {
       order: 2;
+      .page-template-page-campus-page &,
+      .page-template-page-ministry-imageheader &,
+      .page-template-page-full-width &,
+      .page-template-default-sidebar-left &,
+      .page-template-default &,
+      .post-template-default & {
+        margin-top: - rem-calc(69);
+      }
     }
   }
   // specific top-margin changes for pages with featured-image for headers
-  .page-template-landing-page-full-width &,
-  .post-template-default &,
-  .page-template-page-ministry & {
+  .page-template-page-ih-fw &,
+  .page-template-imageheader-title & {
     @include breakpoint(small only) {
       margin-top: -5rem;
       .featured-hero {
         order: 1;
+
       }
       .title-wrapper {
         order: 2;
@@ -141,6 +171,9 @@
     }
     @include breakpoint(medium up) {
       margin-top: -8rem;
+      .title-wrapper {
+        margin-top: - rem-calc(69);
+      }
     }
 
   }
@@ -161,15 +194,14 @@
       @include flex-align(center);
       // border-top: $global-margin/2 solid rgba(249,182,37,0.8);
 
-      background-color: rgba(0,0,0,0.2);
+      background-color: $white;
       @include xy-gutters($grid-padding-gutters, padding, left right);
-      padding-top: $global-padding*3;
-      // margin-top: -$global-margin/2;
+      padding: $global-padding*2 0;
+
+
     }
-
-
-    .page-template-landing-page-full-width & {
-      backround: none;
+    .page-template-page-ih-fw &,
+    .page-template-imageheader-title & {
       @include breakpoint(small only) {
         margin-top: -3rem;
       }
@@ -206,23 +238,22 @@
     //   }
     // }
 
-  h1.entry-title {
-    @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top left right);
-    text-align: right;
-    color: $white;
-    font-weight: 600;
-    text-transform: uppercase;
+    h1.entry-title {
+      @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top left right);
+      text-align: right;
+      color: $white;
+      font-weight: 600;
+      text-transform: uppercase;
 
-    margin-bottom: 0;
-    @include breakpoint(medium up) {
-      margin-bottom: 0.5rem;
-      margin-top: -1rem;
-      padding: 0;
-      color: $black;
-      font-weight: 300;
-
+      margin-bottom: 0;
+      @include breakpoint(medium up) {
+        margin-bottom: 0.5rem;
+        margin-top: -1rem;
+        padding: 0;
+        color: $black;
+        font-weight: 300;
+      }
     }
-  }
   }
 }
 ol.tribe-list-widget {
@@ -326,7 +357,7 @@ ol.tribe-list-widget {
   }
 }
 // post navigation
-.post-navigation, .tribe-events-sub-nav, .tribe-events-back {
+.post-navigation, .tribe-events-sub-nav, .tribe-events-back, footer #page-nav {
   border-top: 1px solid $light-gray;
   border-bottom: 1px solid $light-gray;
   font-size: 0.8em;
@@ -345,7 +376,8 @@ ol.tribe-list-widget {
 
   }
 }
-.post-navigation {
+.post-navigation, footer #page-nav {
+  padding-top: $global-padding;
   margin: $global-margin*3 0 $global-margin 0;
 }
 
@@ -360,6 +392,26 @@ section#respond {
 }
 
 // content-footer-section
+.related {
+  background-color: lighten($cru-gold,10%);
+  @include xy-gutters($grid-margin-gutters, margin, left right bottom);
+
+  @include breakpoint(small only) {
+    @include angle('before', true, 2deg);
+    padding-bottom: $global-margin*3;
+    margin-bottom: -1rem;
+  }
+}
+.related-grid {
+  @include xy-grid();
+  @include xy-cell(10 of 12);
+  @include xy-cell-offset(1);
+  @include breakpoint(small only) {
+    @include xy-cell(100%);
+  }
+  @include xy-gutters($grid-padding-gutters, padding, top bottom);
+}
+
 .content-footer-section {
   background-color: $cru-cyan;
   @include breakpoint(medium up) {
@@ -397,7 +449,7 @@ section#respond {
     }
   }
   .cf-tertiary {
-    background-color: $cru-blue;
+    background-color: #064989;
     @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top left right);
     @include breakpoint(small only) {
       @include xy-cell(110%);
@@ -412,14 +464,136 @@ section#respond {
       @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left);
     }
     .main-heading {
-      font-size: rem-calc(20);
-      color: smart-scale($cru-orange, 15%);
+      font-size: rem-calc(24);
       .first-line {
-        color: $cru-gold;
+        color: $cru-gray;
         }
       .title-word {
         color: $white;
       }
     }
+  }
+}
+.sm {
+  background-color: #eee;
+  margin-top: $global-margin*2;
+  @include xy-grid(horizontal);
+  @include xy-gutters($grid-margin-gutters, margin, left right);
+  .widget_custom_html {
+    @include breakpoint(small only) {
+      @include xy-cell(full);
+    }
+    @include breakpoint(medium up) {
+      @include xy-cell(50%);
+    }
+    @include flex-align(center);
+    @include flex-align-self(middle);
+
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right bottom);
+    @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top bottom);
+
+  }
+  .widget_fbw_id {
+    @include breakpoint(small only) {
+      @include xy-cell(full);
+    }
+    @include breakpoint(medium up) {
+      @include xy-cell(auto);
+    }
+    @include flex-align-self(middle);
+    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right bottom);
+    @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top bottom);
+
+  }
+}
+
+
+$image-hover-wrapper-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$image-hover-wrapper-transition-delay: 0.25s;
+$image-hover-wrapper-banner-width: 75%;
+$image-hover-wrapper-banner-topspace: 25%;
+$image-hover-wrapper-banner-bg: rgba($black ,0.4);
+$image-hover-wrapper-icon-size: 24px;
+
+.image-hover-wrapper {
+  position: relative;
+  @include breakpoint(small) {
+    @include xy-cell(1 of 2);
+  }
+  @include breakpoint(medium) {
+    @include xy-cell(1 of 4);
+
+  }
+  &:hover {
+    .image-hover-wrapper-banner {
+      background-color: $cru-blue;
+    }
+  }
+  a {
+    display: inline-block;
+    letter-spacing: normal;
+    line-height: initial;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    img {
+      float: left;
+      overflow: hidden;
+      width: 100%;
+    }
+
+
+
+    .image-hover-wrapper-reveal {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: $white;
+      display: inline;
+      height: 100%;
+      margin-left: -100%;
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 80;
+      transition: $image-hover-wrapper-transition;
+      transition-delay: $image-hover-wrapper-transition-delay;
+
+      &:hover {
+        opacity: 1;
+        transition: $image-hover-wrapper-transition;
+      }
+
+      &:hover p {
+        opacity: 1;
+        transition: $image-hover-wrapper-transition;
+        transition-delay: $image-hover-wrapper-transition-delay;
+      }
+
+      p {
+        bottom: 0;
+        display: block;
+        opacity: 0;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        transition: $image-hover-wrapper-transition;
+      }
+    }
+
+    .fa {
+      font-size: $image-hover-wrapper-icon-size;
+    }
+  }
+
+  .image-hover-wrapper-banner {
+    background-color: $image-hover-wrapper-banner-bg;
+    color: $white;
+    font-weight: 600;
+    left: 0;
+    padding: 0.5rem;
+    position: absolute;
+    top: $image-hover-wrapper-banner-topspace;
+    width: $image-hover-wrapper-banner-width;
+    z-index: 10;
   }
 }

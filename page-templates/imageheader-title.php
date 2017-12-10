@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Landing-Page-Full Width
+Template Name: Image Header with Title
 */
 get_header(); ?>
 <header class="featured-header">
@@ -10,12 +10,13 @@ get_header(); ?>
 	<?php get_template_part( 'template-parts/featured-image' ); ?>
 </header>
 <section class="intro">
+	<div class="main-wrap">
+		<main class="main-content-full-width">
 <?php /* Start loop */ ?>
 <?php while ( have_posts() ) : the_post(); ?>
-	<?php do_action( 'foundationpress_before_content' ); ?>
-	<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 	<?php the_content(); ?>
-	<?php do_action( 'foundationpress_after_content' ); ?>
 <?php endwhile;?>
+		</main>
+	</div>
 </section>
 <?php get_footer();

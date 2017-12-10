@@ -10,9 +10,12 @@
  if ( ! defined( 'ABSPATH' ) ) {
  	die( '-1' );
  }
- $today = date( 'Y-m-d H:i:s');
+ $today = date( 'Y-m-d');
+ $datelimit = date('Y-m-d', strtotime('last day of next month'));
  $events_label_plural = tribe_get_event_label_plural();
  $events_label_plural_lowercase = tribe_get_event_label_plural_lowercase();
+ $orig_post = $post;
+
  $category = get_post_meta($post->ID, "eventsCategory", true);
  $tribe_events_post_type = 'tribe_events';
  $tribe_events_post_args = array(
@@ -21,16 +24,22 @@
      'posts_per_page'   => 3,
      'tribe_events_cat' => $category,
      'caller_get_posts' => -1,
-
+     'meta_query' => array(
+     		array(
+     			'key' => '_EventStartDate',
+     			'value' => array($today, $datelimit),
+     			'compare' => 'between',
+     			)
+     		),
      'orderby'=>'_EventStartDate',
-               'order'            => 'DESC'
+               'order'            => 'ASC'
            );
  $posts = tribe_get_events( $tribe_events_post_args );
- // $posts = tribe_get_events( array( 'end_date' => $today ));
  if ( $posts ) : ?>
  <ol class="tribe-list-widget">
  	<?php
  	// Setup the post data for each event.
+
  	foreach ( $posts as $post ) :
  		setup_postdata( $post );
  		?>
@@ -55,7 +64,7 @@
  				 *
  				 * @param $size
  				 */
- 				$thumbnail_size = apply_filters( 'tribe_events_list_widget_thumbnail_size', 'post-thumbnail' );
+ 				$thumbnail_size = apply_filters( 'tribe_events_list_widget_thumbnail_size', 'fp-medium' );
 
  				/**
  				 * Filters whether the featured image link should be added to the Events List Widget
@@ -104,6 +113,8 @@
  </li>
  <?php
  endforeach;
+ $post = $orig_post;
+ wp_reset_query();
  ?>
  </ol>
  <?php endif;

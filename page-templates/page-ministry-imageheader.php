@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Ministry Page
+Template Name: Ministry Page with Image Header
 Description: This page provides widget areas and custom event sliders
 based on a custom page field.
 */
@@ -15,11 +15,11 @@ get_header(); ?>
 	<main class="main-content-full-width">
 		<?php while ( have_posts() ) : the_post(); ?>
 		<?php get_template_part( 'template-parts/content', 'page' ); ?>
-		<?php wp_list_pages(array('child_of'=> get_the_ID())); ?>
-
 		<?php endwhile;?>
 	</main>
 </div>
+<?php get_sidebar('content-footer'); ?>
+
 <section class="content-footer-section">
 	<div class="home-section-wrapper">
 		<section class="cf-secondary">
@@ -29,15 +29,12 @@ get_header(); ?>
 			</div> <!--grid-container-->
 		</section>
 		<section class="cf-tertiary">
-			<div class="grid-x">
-				<h3 class="main-heading"><span class="first-line">Follow us on</span><span class="title-word">Social Media</span></h3>
-			</div>
+
 			<div class="grid-x align-center">
-				<a class="social-cell" href="http://facebook.com/CruSingapore"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i><br>CruSingapore</a>
-				<a class="social-cell" href="http://facebook.com/CruSingapore"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i><br>@crusingapore</a>
-			</div>
-			<div class="grid-x align-center">
-				<?php get_sidebar() ?>
+				<?php
+				get_template_part( 'template-parts/category-articles-list'); ?>
+				<?php get_sidebar('front-social-media'); ?>
+
 			</div>
 		</section>
 	</div>

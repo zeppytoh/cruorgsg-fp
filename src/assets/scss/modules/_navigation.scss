@@ -39,18 +39,18 @@
   //  position: absolute;
   //  z-index: 20;
   }
-
-  .page-template-default &, .page-template-page-full-width & {
-    border-top: $global-margin/2 solid $cru-red;
-
-    @include breakpoint(medium up) {
-        background: $white;
-
-        .menu {
-          background: $white;
-        }
-    }
-  }
+  //
+  // .page-template-default &, .page-template-page-full-width & {
+  //   border-top: $global-margin/2 solid $cru-red;
+  //
+  //   @include breakpoint(medium up) {
+  //       background: $white;
+  //
+  //       .menu {
+  //         background: $white;
+  //       }
+  //   }
+  // }
 
   .page-template-default &,
   .archive &,
@@ -88,6 +88,7 @@
   @include xy-cell(2);
   z-index: 2;
   @include breakpoint(small only) {
+    margin: 0;
     margin-bottom: -2rem;
     .archive &, .blog &, .tribe_events-template-default & {
       margin-bottom: 0;
@@ -99,8 +100,7 @@
 .top-bar-right {
   @include xy-cell(auto);
   margin:0;
-
-
+  background: $white;
 }
 
 // Site title (logo)
@@ -232,7 +232,6 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     margin-top: 2rem;
     @include xy-grid(vertical, false);
     height: 90%;
-    // width: $offcanvas-sizes - 50px;
     .nav-anchor {
       display: block;
       padding: 1rem 0;
@@ -305,14 +304,17 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     margin-left: 0;
     margin-top: 0;
     .nav-anchor {
-
+      width: 100%;
       // color: $white;
       .menu-title {
-        @include xy-cell(shrink);
+        @include xy-cell(auto);
         font-size: rem-calc(16);
         letter-spacing: 0.02rem;
         margin: inherit 0;
       }
+    }
+    .is-dropdown-submenu {
+      background: red;
     }
     i.description {
       display: none;
@@ -378,22 +380,19 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     height: 12px;
     margin-top: -6px
 }
-.post-template-default, .page-template-page-full-width,
-.page-template-default, .page-template-page-sidebar-left,
-.archive {
-  .header__nav-button::before
-  {
-      background: $cru-gray;
-      height: 2px;
-      margin-top: -1px
-  }
-  .header__nav-button::after
-  {
-      border: solid $cru-gray;
-      border-width: 2px 0;
-      height: 12px;
-      margin-top: -6px
-  }
+
+.header__nav-button::before
+{
+    background: $cru-gray;
+    height: 2px;
+    margin-top: -1px
+}
+.header__nav-button::after
+{
+    border: solid $cru-gray;
+    border-width: 2px 0;
+    height: 12px;
+    margin-top: -6px
 }
 
 .header__nav-button:before {
@@ -472,7 +471,7 @@ $menu-underline-from-center-border-thickness: 0.125rem;
   }
   ul.is-dropdown-submenu {
     box-shadow: 0px 1px 2px 0px $cru-gray;
-
+    width: map-get($offcanvas-sizes, 'medium');
 
   }
   .dropdown.menu .has-submenu.is-down-arrow a { color: $cru-orange; padding-right: 1rem; }

@@ -8,11 +8,30 @@
  */
 
 register_nav_menus( array(
+	'top-bar-campus'  => esc_html__( 'Campus Top Bar', 'foundationpress' ),
 	'top-bar-r'  => esc_html__( 'Right Top Bar', 'foundationpress' ),
 	'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
 	'footer-r' => esc_html__('Footer Right', 'foundationpress'),
 ));
 
+/**
+ * Desktop navigation - campus right top bar
+ *
+ * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
+ */
+if ( ! function_exists( 'foundationpress_top_bar_campus' ) ) {
+	function foundationpress_top_bar_campus() {
+		wp_nav_menu( array(
+			'container'      => false,
+			'menu_class'     => 'dropdown menu',
+			'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu nav-list" data-responsive-menu="accordion medium-dropdown" data-submenu-toggle="true" data-multi-open="true" data-alignment="left">%3$s</ul>',
+			'theme_location' => 'top-bar-campus',
+			'depth'          => 2,
+			'fallback_cb'    => false,
+			'walker'         => new Foundationpress_Top_Bar_Walker(),
+		));
+	}
+}
 
 /**
  * Desktop navigation - right top bar

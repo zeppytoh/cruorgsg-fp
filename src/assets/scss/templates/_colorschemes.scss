@@ -3,13 +3,19 @@
   border-top: $global-margin/2 solid $cru-gold;
   background: transparent;
   @include breakpoint(small only) {
+    .page-template-page-sidebar-left &,
+    .page-template-page-ministry-imageheader &,
+    .page-template-page-full-width &,
+    .post-template-default &,
     .page-template-default & {
       background-color: $cru-gold;
-      border-color: $cru-red;
+      border-color: $cru-gold;
     }
+
   }
   @include breakpoint(medium) {
-    .page-template-landing-page-full-width {
+    .page-template-page-ih-fw &,
+    .page-template-imageheader-title & {
       .nav-list {
         background: rgba(0,0,0,0.4);
       }
@@ -22,34 +28,53 @@
 .site-desktop-title {
   // box-shadow: 1px 1px 2px $cru-gray;
   @include breakpoint(small only) {
+    .page-template-page-full-width &,
     .page-template-default & {
-      background-color: $cru-red;
+      background-color: $cru-gold;
     }
   }
 }
 
 .title-wrapper {
   @include breakpoint(small only) {
-    .page-template-default & {
+    .page-template-page-sidebar-left &,
+    .page-template-page-ministry-imageheader &,
+    .page-template-page-full-width &,
+    .page-template-default &,
+    .post-template-default &
+    {
       background-color: $cru-gold;
     }
-    .page-template-landing-page-full-width {
-      background: transparent;
+    .page-template-page-ih-fw &,
+    .page-template-imageheader-title & {
+      background: none;
     }
   }
   @include breakpoint(medium) {
-    border-top: $global-margin/2 solid $cru-gold;
+    border-top: $global-margin/2 solid darken($cru-gold, 15%);
   }
 }
 
 .header__nav-button::before {
   background: $cru-gold;
+  .page-template-page-sidebar-left &,
+  .page-template-page-ministry-imageheader &,
+  .page-template-page-campus-ministry &,
+  .page-template-page-ih-fw &,
+  .page-template-imageheader-title &,
+  .post-template-default &,
   .page-template-default & {
     background: $white;
   }
 }
 .header__nav-button::after {
   border: solid $cru-gold;
+  .page-template-page-sidebar-left &,
+  .page-template-page-ministry-imageheader &,
+  .page-template-page-campus-ministry &,
+  .page-template-page-ih-fw &,
+  .page-template-imageheader-title &,
+  .post-template-default &,
   .page-template-default & {
     border-color: $white;
   }
@@ -61,7 +86,7 @@
   &:before, &:after {
     background: $cru-red;
     .page-template-default & {
-      background: $cru-blue;
+      background: $cru-gold;
     }
   }
   &:before {
@@ -85,11 +110,11 @@
       .page-template-default & {
         border-color: $cru-red;
       }
-      .page-template-ministry-landing &, .page-template-landing-page-full-width & {
-        border-color: $cru-red;
-      }
-      .page-template-page-full-width & {
-        border-color: $cru-orange;
+
+      .page-template-page-ih-fw &,
+      .page-template-imageheader-title &,
+      .page-template-default & {
+        border-color: $cru-gold;
       }
     }
 }

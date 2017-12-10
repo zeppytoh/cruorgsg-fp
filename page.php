@@ -12,11 +12,12 @@
 
  get_header(); ?>
  <header class="featured-header">
- <?php get_template_part( 'template-parts/featured-image' ); ?>
- 	<div class="title-wrapper">
- 		<h1 class="entry-title"><?php the_title(); ?></h1>
- 	</div>
+   <div class="title-wrapper">
+     <h1 class="entry-title"><?php the_title(); ?></h1>
+   </div>
+   <?php get_template_part( 'template-parts/featured-image' ); ?>
  </header>
+ <section class="home-section">
  <div class="main-wrap">
    <main class="main-content">
      <?php while ( have_posts() ) : the_post(); ?>
@@ -26,4 +27,5 @@
   </main>
 <?php get_sidebar(); ?>
 </div>
+</section>
 <?php get_footer();

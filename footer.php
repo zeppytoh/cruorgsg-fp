@@ -26,7 +26,7 @@
 
 											<li><i class="fa fa-phone fa-lg" aria-hidden="true"></i>+65 6589 9600</li>
 
-											<li><a href="#cf-modal-CF5a00a7fe0e5e75a00a9258fae6" class="caldera-forms-modal" data-form="CF5a00a7fe0e5e7" title="Click to open the form Contact Cru Singapore in a modal"><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact us</a></li>
+											<li><a href="/contact-us" ><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact us</a></li>
 
 											<li><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>18 Verdun Road
 	#04-01 Singapore 207280</li>

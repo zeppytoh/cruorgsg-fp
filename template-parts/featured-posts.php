@@ -12,7 +12,7 @@
  }
  ?>
 <?php
-  $custom_query = new WP_Query('posts_per_page=5'); // include category 1;
+  $custom_query = new WP_Query(array( 'post__in' => get_option( 'sticky_posts' ))); // include category 1;
 ?>
 <?php if ( $custom_query->have_posts() ) : ?>
   <?php /* Start the Loop */ ?>

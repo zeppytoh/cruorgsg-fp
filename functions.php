@@ -16,7 +16,7 @@
 
 /** Various clean up functions */
 require_once( 'library/cleanup.php' );
-require_once( 'library/allowed-html.php' );
+// require_once( 'library/allowed-html.php' );
 /** Required for Foundation to work properly */
 require_once( 'library/foundation.php' );
 
@@ -37,7 +37,7 @@ require_once( 'library/widget-areas.php' );
 require_once( 'library/entry-meta.php' );
 
 /** Enqueue scripts */
-require_once( 'library/enqueue-scripts.php' );
+require_once( 'library/crusg-enqueue-scripts.php' );
 
 /** Add theme support */
 require_once( 'library/theme-support.php' );
@@ -59,5 +59,5 @@ require_once( 'library/category-events.php' );
 
 
 /** Facebook JavaScript SDK */
-require_once( 'library/facebook-javascript.php' );
-require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
+// require_once( 'library/facebook-javascript.php' );
+// require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );

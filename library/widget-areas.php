@@ -20,16 +20,7 @@ function foundationpress_sidebar_widgets() {
 	register_sidebar(array(
 		'id' => 'front-social-media-widgets',
 		'name' => __( 'Front page widgets', 'foundationpress' ),
-		'description' => __( 'Meant for social media plugins.', 'foundationpress' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4>',
-		'after_title' => '</h4>'
-	));
-	register_sidebar(array(
-		'id' => 'front-facebook-widgets',
-		'name' => __( 'Front page facebook sidebar', 'foundationpress' ),
-		'description' => __( 'Meant for facebook.', 'foundationpress' ),
+		'description' => __( 'Drag widgets to this custom container.', 'foundationpress' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4>',
@@ -39,7 +30,7 @@ function foundationpress_sidebar_widgets() {
 		'id' => 'content-footer-widgets',
 		'name' => __( 'Content Footer widgets', 'foundationpress' ),
 		'description' => __( 'Drag widgets to this content bottom container.', 'foundationpress' ),
-		'before_widget' => '<section class="content-footer-section"><div class="home-section-wrapper"><div id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section class="related"><div class="home-section-wrapper"><div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div></div></section>',
 		'before_title' => '<h4>',
 		'after_title' => '</h4>'

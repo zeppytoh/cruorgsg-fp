@@ -22,12 +22,11 @@
 			<div class="top-bar-left">
 				<div class="site-desktop-title">
 <span aria-label="cru-singapore"><?php bloginfo( 'name' ); ?></span>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri(), (is_front_page() ? '/dist/assets/images/cru-singapore-logo.svg' : '/dist/assets/images/cru-sg-logo-white.svg'); ?>"></a>
+					<a href="<?php echo esc_url( home_url( '/campus/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri(),'/dist/assets/images/cru-sg-logo-white.svg' ?>"></a>
 				</div>
 			</div>
 			<div class="top-bar-right position-right off-canvas in-canvas-for-medium" id="inCanvasMenu" data-off-canvas data-content-scroll="false">
-
-				<?php foundationpress_top_bar_r(); ?>
+				<?php foundationpress_top_bar_campus(); ?>
 			</div>
 		</nav>
     <a aria-label="Open Navigation Menu" href="#nav" class="header__nav-button hide-for-medium" role="button" data-toggle="inCanvasMenu"></a>

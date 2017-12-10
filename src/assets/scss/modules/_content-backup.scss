@@ -2,7 +2,9 @@
   @include xy-grid-container();
   @include xy-grid();
   margin-top: 1rem;
-
+  @include breakpoint(medium) {
+    margin-top: 3rem;
+  }
   ul {
     list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="#ccc" cx="5" cy="5" r="3"/></svg>');
   }
@@ -15,6 +17,7 @@
   @include breakpoint(medium up) {
     margin-top: $global-margin*2;
     margin-bottom: $global-margin*3;
+
   }
 
   &.sidebar-left {
@@ -33,25 +36,23 @@
 
   // Full width template
   .main-content-full-width {
-      @include xy-grid;
-    article {
-      @include flex-align(center, middle);
-
+    @include breakpoint(small) {
+      @include xy-cell(12);
     }
-    .entry-content {
-      @include breakpoint(small) {
-        @include xy-cell(full);
-      }
-      @include breakpoint(medium up) {
-        @include xy-cell(10);
-        @include xy-cell-offset(1);
-
-      }
+    @include breakpoint(medium) {
+      @include xy-cell(9);
+    }
+    @include breakpoint(large) {
+      @include xy-cell(10);
+    }
+    @include breakpoint(xlarge up) {
+      @include xy-cell(12);
     }
   }
 
   // Default template
   .main-content {
+    border: 1px solid green;
     @include xy-cell(auto);
     @include xy-gutters($grid-padding-gutters,$gutter-type: padding, $gutter-position: left right);
 
@@ -109,8 +110,9 @@
 // end of main-wrap
 
 .featured-header {
-  @include xy-grid(vertical, false);
   @include xy-grid-container(full);
+  @include xy-grid(vertical, false);
+
   .featured-hero {
     margin: 0;
     .title-wrapper {
@@ -157,60 +159,45 @@
       @include angle('after', true, 2deg);
       @include flex-align($x: right, $y: stretch);
       height: rem-calc(50);
-      .page-template-default &,
-      .page-template-page-sidebar-left & {
-        background-color: $cru-gold;
-      }
     }
     @include breakpoint(medium up) {
-
       @include flex-align(center);
-
-      border-top: $global-margin/2 solid rgba(249,182,37,0.8);
-      background-color: rgba(0,0,0,0.2);
-      @include xy-gutters($grid-padding-gutters, padding, left right);
-      padding-top: $global-padding*3;
-      // margin-top: -$global-margin/2;
     }
-
-
+    .page-template-default &,
+    .page-template-page-sidebar-left & {
+      background-color: $cru-gold;
+    }
     .page-template-landing-page-full-width & {
       backround: none;
-      @include breakpoint(small only) {
-        margin-top: -3rem;
+      margin-top: -3rem;
+    }
+    .page-template-page-full-width & {
+      background-color: $cru-blue;
+    }
+    .page-template-page-full-width &,
+    .page-template-default &,
+    .page-template-page-sidebar-left & {
+      @include breakpoint(medium up) {
+        @include xy-gutters($grid-padding-gutters, padding, left right);
+        padding-top: $global-padding*3;
+
       }
     }
-    // .page-template-page-full-width & {
-    //
-    // }
-    // .page-template-page-full-width &,
-    // .page-template-default &,
-    // .page-template-page-sidebar-left & {
-    //   @include breakpoint(medium up) {
-    //     @include xy-gutters($grid-padding-gutters, padding, left right);
-    //     padding-top: $global-padding*3;
-    //     margin-top: 4rem;
-    //     border-top: $global-margin/2 solid $cru-orange;
-    //     background-color: rgba(0,0,0,0.2);
-    //
-    //
-    //   }
-    // }
-    // .page-template-page-sidebar-left &, .page-template-page-full-width & {
-    //   @include breakpoint(medium up) {
-    //     @include flex-align(center);
-    //     background-color: none;
-    //   }
-    // }
-    // .page-template-ministry-landing & {
-    //   @include breakpoint(medium up) {
-    //     @include xy-grid-container();
-    //     @include xy-gutters($grid-padding-gutters, padding, left right);
-    //
-    //
-    //
-    //   }
-    // }
+    .page-template-page-sidebar-left &, .page-template-page-full-width & {
+      @include breakpoint(medium) {
+        @include flex-align(center);
+      }
+    }
+    .page-template-ministry-landing & {
+      @include breakpoint(medium up) {
+        @include xy-grid-container();
+        @include xy-gutters($grid-padding-gutters, padding, left right);
+
+        background: none;
+        margin-top: -3rem;
+
+      }
+    }
 
   h1.entry-title {
     @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top left right);
@@ -218,15 +205,11 @@
     color: $white;
     font-weight: 600;
     text-transform: uppercase;
-
     margin-bottom: 0;
     @include breakpoint(medium up) {
       margin-bottom: 0.5rem;
       margin-top: -1rem;
       padding: 0;
-      color: $black;
-      font-weight: 300;
-
     }
   }
   }
@@ -362,70 +345,5 @@ section#respond {
   @include xy-gutters($grid-padding-gutters, padding, top left right);
   #allowed_tags.small {
     font-size: 0.8em;
-  }
-}
-
-// content-footer-section
-.content-footer-section {
-  background-color: $cru-cyan;
-  @include breakpoint(medium up) {
-    @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
-
-  }
-  @include breakpoint(small only) {
-    margin: 0;
-    padding: 0;
-        @include angle('before', false, 3deg);
-        @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
-  }
-  .cf-secondary {
-    background-color: $cru-cyan;
-    @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top);
-    @include breakpoint(medium up) {
-      @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left right);
-      @include xy-cell(auto);
-    }
-    @include breakpoint(small only) {
-      @include xy-cell(auto);
-      @include angle('before', false, 3deg);
-      padding: 0;
-
-    }
-    .main-heading {
-      font-size: rem-calc(20);
-      color: smart-scale($cru-orange, 15%);
-      .first-line {
-        color: $light-gray;
-        }
-      .title-word {
-        color: darken($cru-blue, 10%);
-      }
-    }
-  }
-  .cf-tertiary {
-    background-color: $cru-blue;
-    @include xy-gutters($grid-padding-gutters, $gutter-type: padding, $gutter-position: top left right);
-    @include breakpoint(small only) {
-      @include xy-cell(110%);
-      @include angle('before', true, 3deg);
-      margin: 0;
-      padding: 3*$global-margin 0;
-
-    }
-
-    @include breakpoint(medium up) {
-      @include xy-cell(auto);
-      @include xy-gutters($grid-margin-gutters, $gutter-type: margin, $gutter-position: left);
-    }
-    .main-heading {
-      font-size: rem-calc(20);
-      color: smart-scale($cru-orange, 15%);
-      .first-line {
-        color: $cru-gold;
-        }
-      .title-word {
-        color: $white;
-      }
-    }
   }
 }
